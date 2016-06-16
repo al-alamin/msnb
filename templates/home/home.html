@@ -1,4 +1,9 @@
 {% extends "common/base.html" %}
+{% load static %}
 {% block content %}
-    <h1>hello world</h1>
+    {% include "common/search_block.html" %}
+    {% include "home/introductory_word.html" %}
+    {% include "home/testimonials.html" %}
+    {% include "home/team.html" %}
+
 {% endblock %}
