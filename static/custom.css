@@ -1,3 +1,20 @@
 .bg-color-light p{
 	color: #0f0f0f;
 }
+/*Search Block Version 2
+------------------------------------*/
+.search-block-v2 {
+	margin-bottom: 50px;
+	padding: 50px 0 58px;
+	border-bottom: 1px solid #eee;
+	background: url(unify_assets/img/patterns/breadcrumbs.png) repeat;
+}
+
+.search-block-v2 h2 {
+	font-size: 24px;
+	font-weight: 200;
+	text-align: center;
+	margin-bottom: 18px;
+	text-transform: uppercase;
+}
+
