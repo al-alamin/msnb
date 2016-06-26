@@ -2,11 +2,65 @@ from django.db import models
 
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     email = models.EmailField()
-    url = models.URLField()
-    bio = models.CharField(max_length=500)
+    url = models.URLField(blank=True, null=True)
+    bio = models.TextField(max_length=500, blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='images/', default='images/user_default.jpg')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Questions(models.Model):
+    author = models.ForeignKey(Author)
+    category = models.ManyToManyField(Category)
+    tag = models.ManyToManyField(Tag, blank=True)
+    text = models.TextField(max_length=500)
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
+
+class Answers(models.Model):
+    author = models.ForeignKey(Author)
+    category = models.ManyToManyField(Category)
+    tag = models.ManyToManyField(Tag, blank=True)
+    question = models.ForeignKey(Questions)
+    text = models.TextField(max_length=500)
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        order_with_respect_to = 'question'
+
+class Posts(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author)
+    category = models.ManyToManyField(Category)
+    tag = models.ManyToManyField(Tag, blank=True)
+    text = models.TextField(max_length=5000)
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
