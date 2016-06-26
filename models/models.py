@@ -54,6 +54,7 @@ class Answers(models.Model):
     class Meta:
         order_with_respect_to = 'question'
 
+
 class Posts(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
