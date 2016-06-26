@@ -43,6 +43,17 @@
                 <li class="page-scroll">
                     <a href="/contactus/">Contact Us</a>
                 </li>
+                <!-- Search Block -->
+				<li>
+					<i class="search fa fa-search search-btn"></i>
+					<div class="search-open">
+						<div class="input-group animated fadeInDown">
+							<gcse:searchbox-only resultsUrl="{% url 'google_search' %}"></gcse:searchbox-only>
+						</div>
+					</div>
+				</li>
+				<!-- End Search Block -->
+
             </ul>
         </div>
     </div><!--/navbar-collapse-->
