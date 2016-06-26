@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+
+from contact_us.views import contactus
 from home.views import home
 from faq.views import faq
+from skype_consultancy.views import skype
 from sop.views import sop
+from to_do.views import to_do
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home, name='home'),
     url(r'^faq/$', faq, name='faq'),
     url(r'^sop/$', sop, name='sop_review'),
+    url(r'^to_do/$',to_do, name='to_do'),
+    url(r'^skype/$',skype, name='skype'),
+    url(r'^contactus/$',contactus, name='contactus'),
 ]
