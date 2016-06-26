@@ -17,16 +17,12 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-
-<<<<<<< HEAD
 from contact_us.views import contactus
 from home.views import home
 from faq.views import faq
 from skype_consultancy.views import skype
-=======
 from faq.views import faq
 from home.views import home, google_custom_search
->>>>>>> 6f3b431b25d216f7eb23700f317854a86ae535e4
 from sop.views import sop
 from to_do.views import to_do
 
