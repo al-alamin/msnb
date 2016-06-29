@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from models import models
 
-# Create your views here.
 def faq(request):
-    return render(request, 'faq/faq.html')
+    types = models.Type.objects.all().exclude(name='News')
+    context = {'types':types}
+    return render(request, 'faq/faq.html', context)
