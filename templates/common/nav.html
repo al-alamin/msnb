@@ -1,3 +1,4 @@
+
 {% load static %}
         <link rel="stylesheet" href="{% static 'unify_assets/css/headers/header-default.css' %}">
 
@@ -33,16 +34,25 @@
                 <li class="page-scroll">
                     <a href="/sop/">SOP REVIEW</a>
                 </li>
+                <li class="page-scroll">
+                    <a href="/to_do/">To-Do</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="/skype/">Skype Consultancy</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="/contactus/">Contact Us</a>
+                </li>
                 <!-- Search Block -->
-						<li>
-							<i class="search fa fa-search search-btn"></i>
-							<div class="search-open">
-								<div class="input-group animated fadeInDown">
-									<gcse:searchbox-only resultsUrl="{% url 'google_search' %}"></gcse:searchbox-only>
-								</div>
-							</div>
-						</li>
-						<!-- End Search Block -->
+				<li>
+					<i class="search fa fa-search search-btn"></i>
+					<div class="search-open">
+						<div class="input-group animated fadeInDown">
+							<gcse:searchbox-only resultsUrl="{% url 'google_search' %}"></gcse:searchbox-only>
+						</div>
+					</div>
+				</li>
+				<!-- End Search Block -->
 
             </ul>
         </div>

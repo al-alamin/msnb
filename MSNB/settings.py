@@ -41,6 +41,9 @@ INSTALLED_APPS = (
     'home',
     'models',
     'sop',
+    'to_do',
+    'contact_us',
+    'skype_consultancy',
 )
 
 MIDDLEWARE_CLASSES = (

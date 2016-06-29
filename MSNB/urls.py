@@ -17,16 +17,23 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-
+from contact_us.views import contactus
+from home.views import home
+from faq.views import faq
+from skype_consultancy.views import skype
 from faq.views import faq
 from home.views import home, google_custom_search
 from sop.views import sop
+from to_do.views import to_do
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home, name='home'),
     url(r'^faq/$', faq, name='faq'),
     url(r'^sop/$', sop, name='sop_review'),
+    url(r'^to_do/$',to_do, name='to_do'),
+    url(r'^skype/$',skype, name='skype'),
+    url(r'^contactus/$',contactus, name='contactus'),
     url(r'^google_search/$', google_custom_search, name='google_search'),
 ]
 if settings.DEBUG is True:
