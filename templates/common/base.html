@@ -24,14 +24,16 @@
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{% static 'unify_assets/plugins/animate.css' %}">
     <link rel="stylesheet" href="{% static 'unify_assets/plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'unify_assets/plugins/line-icons/line-icons.css' %}">
     <link rel="stylesheet" href="{% static 'unify_assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css' %}">
     <link rel="stylesheet"
           href="{% static 'unify_assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css' %}">
     <link rel="stylesheet" href="{% static 'unify_assets/plugins/parallax-slider/css/parallax-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'unify_assets/plugins/owl-carousel/owl-carousel/owl.carousel.css' %}">
+
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{% static 'custom.css' %}">
-    {#    JS #}
-    <script src="{% static 'common/google_custom_search.js' %}"></script>
+
 
 </head>
 
@@ -47,16 +49,18 @@
 <script src="{% static 'unify_assets/plugins/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'unify_assets/plugins/jquery/jquery-migrate.min.js' %}"></script>
 <script src="{% static 'unify_assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
-<!-- JS Implementing Plugins -->
-<script type="text/javascript" src="{% static 'unify_assets/plugins/back-to-top.js' %}"></script>
-<!-- JS Page Level -->
-<script type="text/javascript" src="{% static 'unify_assets/js/app.js' %}"></script>
+<script src="{% static 'unify_assets/plugins/owl-carousel/owl-carousel/owl.carousel.js' %}"></script>
+<script src="{% static 'unify_assets/js/app.js' %}"></script>
+  {#    JS #}
+<script src="{% static 'common/google_custom_search.js' %}"></script>
 
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-		});
-	</script>
+<script type="text/javascript" src="{% static 'unify_assets/js/plugins/owl-carousel.js' %}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        OwlCarousel.initOwlCarousel();
+    });
+</script>
 <!--[if lt IE 9]>
   <script src="{% static 'unify_assets/plugins/respond.js' %}"></script>
   <script src="{% static 'unify_assets/plugins/html5shiv.js' %}"></script>
