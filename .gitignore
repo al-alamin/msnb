@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 *.pyc
+wsgi.py
+models/migrations/

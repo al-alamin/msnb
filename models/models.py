@@ -13,9 +13,19 @@ class Author(models.Model):
         return self.first_name + ' ' + self.last_name
 
 
+class Type(models.Model):
+    """
+    It's like parent category for category and tag. eg, Visa, Higher Study
+    """
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=50)
-    type = models.CharField(max_length=50)
+    type = models.ForeignKey(Type, blank=True)
 
     def __str__(self):
         return self.name
@@ -23,13 +33,13 @@ class Tag(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    type = models.CharField(max_length=50)
+    type = models.ForeignKey(Type, blank=True)
 
     def __str__(self):
         return self.name
 
 
-class Questions(models.Model):
+class Question(models.Model):
     author = models.ForeignKey(Author)
     category = models.ManyToManyField(Category)
     tag = models.ManyToManyField(Tag, blank=True)
@@ -40,11 +50,9 @@ class Questions(models.Model):
         return self.text
 
 
-class Answers(models.Model):
+class Answer(models.Model):
     author = models.ForeignKey(Author)
-    category = models.ManyToManyField(Category)
-    tag = models.ManyToManyField(Tag, blank=True)
-    question = models.ForeignKey(Questions)
+    question = models.ForeignKey(Question)
     text = models.TextField(max_length=500)
     date = models.DateField(auto_now_add=True)
 
@@ -55,7 +63,7 @@ class Answers(models.Model):
         order_with_respect_to = 'question'
 
 
-class Posts(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
     category = models.ManyToManyField(Category)

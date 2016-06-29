@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'develop_hss.urls'
+ROOT_URLCONF = 'MSNB.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'develop_hss.wsgi.application'
+WSGI_APPLICATION = 'MSNB.wsgi.application'
 
 
 # Database
