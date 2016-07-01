@@ -60,7 +60,12 @@
         App.init();
         OwlCarousel.initOwlCarousel();
     });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
+
 <!--[if lt IE 9]>
   <script src="{% static 'unify_assets/plugins/respond.js' %}"></script>
   <script src="{% static 'unify_assets/plugins/html5shiv.js' %}"></script>

@@ -285,10 +285,26 @@
 }
 
 
+/*Footer */
+.link-list a {
+    color: #000;
+}
 
+.headline-brd{
+  border-bottom: 2px solid #72c02c;
+  display: table-cell;
+}
+.headline-left .headline-brd:after {
+    background: #fff;
+}
 
+.headline-center h2{
+  border-bottom: 2px solid #72c02c;
+}
 
-
+.headline-center h2:after {
+  background: #fff;
+}
 
 
 
