@@ -7,14 +7,15 @@
                 <!-- About -->
                 <div class="col-md-3 md-margin-bottom-40">
                     <!--a href="index.html"><img id="logo-footer" class="footer-logo" src="{% static 'home/assets/img/logo1-default.png' %}" alt=""></a-->
-                    <a class="navbar-brand" href="#body"><h3 id="headerTitle">My Study Notebook</h3></a>
-                    <p class="margin-bottom-20">Put some text here</p>
+                    {# <a class="navbar-brand" href="#body" style="padding-left: 0px;"><h3 id="headerTitle">Email Us</h3></a> #}
+                    <div class="headline"><h2 class="heading-sm">Email Us</h2></div>
+                    <p class="margin-bottom-20"></p>
 
                     <form class="footer-subsribe">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Email Address">
                             <span class="input-group-btn">
-                                <button class="btn-u" type="button">Go</button>
+                                <button class="btn-u" type="button" style="padding-top: 8px;">Go</button>
                             </span>
                         </div>
                     </form>
@@ -64,19 +65,30 @@
                 <div class="col-md-3 md-margin-bottom-40">
                     <div class="headline"><h2 class="heading-sm">Contact Us</h2></div>
                     <address class="md-margin-bottom-40">
-                        <i class="fa fa-home"></i>25, Central Road, Dhanmondi, Dhaka, Bangladesh <br />
-                        <i class="fa fa-phone"></i>Phone: +19797397466<br />
-                        <i class="fa fa-globe"></i>Website: <a href="#">www.whitecanvassoft.com</a> <br />
-                        <i class="fa fa-envelope"></i>Email: <a href="mailto:support@whitecanvassoft.com">support@whitecanvassoft.com</a>
+                        <i class="fa fa-home"></i> 25, Central Road, Dhanmondi, Dhaka, Bangladesh <br />
+                        <i class="fa fa-phone"></i> Phone: +19797397466<br />
+                        <i class="fa fa-globe"></i> Website: <a target="_blank" href="http://www.whitecanvassoft.com/">www.whitecanvassoft.com</a> <br />
+                        <i class="fa fa-envelope"></i> Email: <a href="mailto:support@whitecanvassoft.com">support@whitecanvassoft.com</a>
                     </address>
 
-                    <!-- Social Links -->
-                    <ul class="social-icons">
-                        <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
-                        <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
-                        <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
-                        <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+                    <ul class="list-inline team-social">
+                        <li>
+                            <a data-placement="top" data-toggle="tooltip" class="fb tooltips" data-original-title="Facebook" href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-placement="top" data-toggle="tooltip" class="tw tooltips" data-original-title="Twitter" href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-placement="top" data-toggle="tooltip" class="gp tooltips" data-original-title="Google plus" href="#">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
                     </ul>
+
                     <!-- End Social Links -->
                 </div>
                 <!-- End Address -->

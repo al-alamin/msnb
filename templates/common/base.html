@@ -37,7 +37,7 @@
 
 </head>
 
-<body class="header-fixed">
+<body  data-spy="spyscroll"  class="header-fixed">
 <!-- Header -->
 {% include 'common/nav.html' %}
 <!-- End Header -->
@@ -60,6 +60,10 @@
         App.init();
         OwlCarousel.initOwlCarousel();
     });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 <!--[if lt IE 9]>
   <script src="{% static 'unify_assets/plugins/respond.js' %}"></script>
