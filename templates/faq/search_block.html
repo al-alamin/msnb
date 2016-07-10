@@ -4,14 +4,17 @@
         <div class="container">
             <div class="col-md-6 col-md-offset-3">
                 <h2>Search our FAQ database</h2>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search words with regular expressions ...">
+                <form action="{% url 'faq_search' %}" method="post">
+                    <div class="input-group">
+                        {% csrf_token %}
+                        {{ faq_search_form.search_item }}
                     <span class="input-group-btn">
-                        <button class="btn-u" type="button"><i class="fa fa-search"></i></button>
+                        <button class="btn-u" type="submit"><i class="fa fa-search"></i></button>
                     </span>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div><!--/container-->
-		<!--=== End Search Block Version 2 ===-->
+<!--=== End Search Block Version 2 ===-->

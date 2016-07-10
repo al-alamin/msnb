@@ -21,7 +21,7 @@ from contact_us.views import contactus
 from home.views import home
 from faq.views import faq
 from skype_consultancy.views import skype
-from faq.views import faq
+from faq.views import faq,search_result
 from home.views import home, google_custom_search
 from sop.views import sop
 from to_do.views import to_do
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home, name='home'),
     url(r'^faq/$', faq, name='faq'),
+    url(r'^faq/search/$', search_result, name='faq_search'),
     url(r'^sop/$', sop, name='sop_review'),
     url(r'^to_do/$',to_do, name='to_do'),
     url(r'^skype/$',skype, name='skype'),

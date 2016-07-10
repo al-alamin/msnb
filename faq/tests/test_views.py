@@ -3,6 +3,9 @@ from models import models
 
 
 class TestRelatedModels(TestCase):
+    def setUp(self):
+        self.insert_data_into_models()
+
     def insert_data_into_models(self):
         type = models.Type(name='Standard Test')
         type.save()
@@ -20,19 +23,25 @@ class TestRelatedModels(TestCase):
         question.save()
         ans = models.Answer(author=author, question=question, text='sample ans 1')
         ans.save()
-        ans = models.Answer(author=author, question=question, text='sample ans 2')
+        question = models.Question(author=author,text='sample question2')
+        question.save()
+        ans = models.Answer(author=author, question=question, text='sample ans 2-1')
         ans.save()
 
+
     def test_categoris_arranged_by_types(self):
-        self.insert_data_into_models()
         types = models.Type.objects.all().exclude(name='News')
-        for type in types:
-            print('type', type.name)
-            for cat in type.category_set.all():
-                print(cat.name)
+        # for type in types:
+        #     print('type', type.name)
+        #     for cat in type.category_set.all():
+        #         print(cat.name)
 
     def test_can_get_all_questions_and_corresponding_answer_set(self):
         questions = models.Question.objects.all()
         self.assertTrue(questions)
-        for q in questions:
-            print('q', q.text)
+
+    def test_can_get_recent_questions(self):
+        latest = models.Question.objects.all().order_by('date')[:2]
+        for q in latest:
+            print('latest', q.date)
+            print('ans', q.answer.text)

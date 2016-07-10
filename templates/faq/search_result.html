@@ -1,0 +1,62 @@
+{% extends "common/base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'unify_assets/css/pages/page_search_inner.css' %}" >
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs breadcrumbs-dark">
+        <div class="container">
+            <h1 class="pull-left">Search Results</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Page</a></li>
+                <li class="active">Search results</li>
+            </ul>
+        </div>
+    </div>
+    <!--=== End Breadcrumbs ===-->
+    {% include "faq/search_block.html" %}
+    <!--=== Search Results ===-->
+    <div class="container s-results margin-bottom-50">
+        <div class="row">
+            <div class="col-md-2 hidden-xs related-search">
+                <div class="row">
+                    {% for type in types %}
+                    <div class="col-md-12 col-sm-4">
+                        <h3>{{ type.name }}</h3>
+                        <ul class="list-unstyled">
+                            {% for cat in type.category_set.all %}
+                            <li><a href="#">{{ cat.name }}</a></li>
+                                {% endfor %}
+                            {% for tag in type.tag_set.all %}
+                            <li><a href="#">{{ tag.name }}</a></li>
+                                {% endfor %}
+                        </ul>
+                        <hr>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div> <!--/col-md-2-->
+            <div class="col-md-10">
+                <span class="results-number">TOTAL {{ search_result.count }} RESULTS FOUND</span>
+                {% for question in search_result %}
+                <!-- Begin Inner Results -->
+                <div class="inner-results">
+                    <h3>{{ question.text }}</h3>
+                    <ul class="list-inline up-ul">
+                        {% for cat in question.category.all %}
+                        <li><a href="#">{{ cat.name }}</a></li>
+                            {% endfor %}
+                        {% for tag in question.tag.all %}
+                        <li><a href="#">{{ tag.name }}</a></li>
+                            {% endfor %}
+                    </ul>
+                    <p>{{ question.answer.text }}</p>
+                </div>
+                <!-- Begin Inner Results -->
+
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -52,7 +52,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     author = models.ForeignKey(Author)
-    question = models.ForeignKey(Question)
+    question = models.OneToOneField(Question)
     text = models.TextField(max_length=500)
     date = models.DateField(auto_now_add=True)
 
