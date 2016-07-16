@@ -13,7 +13,7 @@
                             <h3 class="heading-md"><strong>{{ type.name }}</strong></h3>
                             <ul class="list-unstyled categories">
                                 {% for cat in type.category_set.all %}
-                                    <li><a href="#">{{ cat.name }}</a></li>
+                                    <li><a href="{% url 'faq_search_cat' cat.name %}">{{ cat.name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>
