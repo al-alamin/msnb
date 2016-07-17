@@ -3,15 +3,19 @@
     <div class="row margin-bottom-30">
         <div class="col-md-9 mb-margin-bottom-30">
             <div class="headline"><h2>Contact Form</h2></div>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit landitiis.</p><br />
+            <p>Feel free to contact us</p><br />
 
-            <form action="assets/php/sky-forms-pro/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form contact-style">
+            <form action="{% url 'contactus' %}" method="post" id="contactus-form" class="sky-form contact-style {% if success %}submited{%endif  %}">
+                {% csrf_token %}
                 <fieldset class="no-padding">
+                    {{ form.non_field_errors }}
+
                     <label>Name <span class="color-red">*</span></label>
                     <div class="row sky-space-20">
                         <div class="col-md-7 col-md-offset-0">
                             <div>
-                                <input type="text" name="name" id="name" class="form-control">
+                                {{ form.name.errors }}
+                                {{ form.name }}
                             </div>
                         </div>
                     </div>
@@ -20,7 +24,8 @@
                     <div class="row sky-space-20">
                         <div class="col-md-7 col-md-offset-0">
                             <div>
-                                <input type="text" name="email" id="email" class="form-control">
+                                {{ form.email.errors }}
+                                {{ form.email }}
                             </div>
                         </div>
                     </div>
@@ -29,7 +34,8 @@
                     <div class="row sky-space-20">
                         <div class="col-md-11 col-md-offset-0">
                             <div>
-                                <textarea rows="8" name="message" id="message" class="form-control"></textarea>
+                                {{ form.msg.errors   }}
+                                {{ form.msg }}
                             </div>
                         </div>
                     </div>

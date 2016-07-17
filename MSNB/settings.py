@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '&yp%!@^)6^5%6wq3q$7o)$&0qvpec4hek2ik**t-5m0x7#0oxi'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -78,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MSNB.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -88,7 +85,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -103,7 +99,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -116,3 +111,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "server_static")
 # media files. Uploaded by user
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if DEBUG:
+    DEBUG_PROPAGATE_EXCEPTIONS = True
+    INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
+# for email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.parmeeda.com'
+EMAIL_HOST_USER = 'abu.obaida@parmeeda.com'
+EMAIL_HOST_PASSWORD = 'WcsParmeeda00*'
+EMAIL_PORT = 587
