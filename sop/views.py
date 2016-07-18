@@ -8,7 +8,6 @@ def sop(request):
         form = SOPSubmitForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
-            print(file.name)
             email_success = form.email_SOP(file)
     else:
         form = SOPSubmitForm()
