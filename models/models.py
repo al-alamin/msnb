@@ -2,10 +2,10 @@ from django.db import models
 
 class AuthorRole(models.Model):
     role_choices = (
-        ('G', 'General'),
-        ('A', 'Advisor'),
-        ('R', 'Reviewer'),
-        ('P', 'Presenter')
+        ('General', 'General'),
+        ('Advisor', 'Advisor'),
+        ('Reviewer', 'Reviewer'),
+        ('Presenter', 'Presenter')
     )
     role = models.CharField(max_length=30,choices=role_choices)
 

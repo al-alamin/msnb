@@ -1,0 +1,32 @@
+<!--=== Team v4 ===-->
+<div class="container">
+    <div class="row team-v4">
+        <!-- Owl Carousel v1 -->
+        <div class="owl-carousel-v1 margin-bottom-50">
+            <h3 class="heading-md">Who is reviewing your SOP?</h3>
+
+            <div class="owl-navigation">
+                <div class="customNavigation">
+                    <a class="owl-btn prev-v1"><i class="fa fa-angle-left"></i></a>
+                    <a class="owl-btn next-v1"><i class="fa fa-angle-right"></i></a>
+                </div>
+            </div><!--/navigation-->
+            <div class="owl-slider">
+                {% for advisor in advisors %}
+                    <div class="item">
+                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ advisor.thumbnail }}" alt="">
+                        <span>{{ advisor.first_name }} {{ advisor.last_name }}</span>
+                        <small>- {{ advisor.role.last }} -</small>
+                        <p>{{ advisor.bio }}</p>
+                        <ul class="list-inline team-social-v4">
+                            <li><a href="#"><i class="rounded-x fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="rounded-x fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="rounded-x fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div><!-- End Owl Carousel v1 -->
+    </div> <!-- End row Team v4 -->
+</div>
