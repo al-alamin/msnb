@@ -1,76 +1,45 @@
 {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'unify_assets/css/footers/footer-default.css' %}">
+    <link rel="stylesheet" href="{% static 'unify_assets/css/footers/footer-v2.css' %}">
 
 <!--=== Footer v2 ===-->
-<div id="footer-default" class="footer-default">
+<div id="footer-v2" class="footer-v2">
     <div class="footer">
         <div class="container">
             <div class="row">
                 <!-- About -->
-                <div class="col-md-3 md-margin-bottom-40">
-                    <!--a href="index.html"><img id="logo-footer" class="footer-logo" src="{% static 'home/assets/img/logo1-default.png' %}" alt=""></a-->
-                    {# <a class="navbar-brand" href="#body" style="padding-left: 0px;"><h3 id="headerTitle">Email Us</h3></a> #}
-                    <div class="headline"><h2 class="heading-sm">Email Us</h2></div>
-                    <p class="margin-bottom-20"></p>
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="headline"><h2 class="heading-sm">My Study Notebook</h2></div>
+                    <p class="margin-bottom-20">
+                        It is our motto to aid students to have the best answer for their questions that will aid
+                        in their higher studies and better future.
+                    </p>
 
-                    <form class="footer-subsribe">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Email Address">
-                            <span class="input-group-btn">
-                                <button class="btn-u" type="button" style="padding-top: 8px;">Go</button>
-                            </span>
-                        </div>
-                    </form>
                 </div>
                 <!-- End About -->
 
                 <!-- Link List -->
-                <div class="col-md-3 md-margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
                     <div class="headline"><h2 class="heading-sm">Useful Links</h2></div>
                     <ul class="list-unstyled link-list">
-                        <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{% url 'home' %}">Home</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{% url 'faq' %}">FAQ</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{% url 'sop_review' %}">SOP</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{% url 'skype'%}">Skype Session</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="{% url 'contactus'%}">Contact us</a><i class="fa fa-angle-right"></i></li>
                     </ul>
                 </div>
                 <!-- End Link List -->
 
-                <!-- Latest Tweets -->
-                <div class="col-md-3 md-margin-bottom-40">
-                    <div class="latest-tweets">
-                        <div class="headline"><h2 class="heading-sm">Latest Tweets</h2></div>
-                        <div class="latest-tweets-inner">
-                            <i class="fa fa-twitter"></i>
-                            <p>
-                                <a href="#">@htmlstream</a>
-                                At vero seos etodela ccusamus et
-                                <a href="#">http://t.co/sBav7dm</a>
-                                <small class="twitter-time">2 hours ago</small>
-                            </p>
-                        </div>
-                        <div class="latest-tweets-inner">
-                            <i class="fa fa-twitter"></i>
-                            <p>
-                                <a href="#">@htmlstream</a>
-                                At vero seos etodela ccusamus et
-                                <a href="#">http://t.co/sBav7dm</a>
-                                <small class="twitter-time">4 hours ago</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Latest Tweets -->
+
 
                 <!-- Address -->
-                <div class="col-md-3 md-margin-bottom-40">
+                <div class="col-md-4 md-margin-bottom-40">
                     <div class="headline"><h2 class="heading-sm">Contact Us</h2></div>
                     <address class="md-margin-bottom-40">
                         <i class="fa fa-home"></i> 25, Central Road, Dhanmondi, Dhaka, Bangladesh <br />
                         <i class="fa fa-phone"></i> Phone: +19797397466<br />
-                        <i class="fa fa-globe"></i> Website: <a target="_blank" href="http://www.whitecanvassoft.com/">www.whitecanvassoft.com</a> <br />
-                        <i class="fa fa-envelope"></i> Email: <a href="mailto:support@whitecanvassoft.com">support@whitecanvassoft.com</a>
+                        <i class="fa fa-globe"></i> Website: <a target="_blank" href="{% url 'home' %}">www.mystudynotebook.com</a> <br />
+                        <i class="fa fa-envelope"></i> Email: <a href="mailto:support@whitecanvassoft.com">support@mystudynotebook.com</a>
                     </address>
 
                     <ul class="list-inline team-social">
@@ -100,7 +69,10 @@
 
     <div class="copyright">
         <div class="container">
-            <p class="text-center">2016 &copy; All Rights Reserved by <a target="_blank" href="http://www.whitecanvassoft.com/">whitecanvassoft</a></p>
+            <p class="text-center">
+                2016 &copy; All Rights Reserved by <a target="_blank" href="{% url 'home' %}">My Study Notebook</a>
+                &nbsp; Designed and Developed by <a target="_blank" href="www.whitecanvassoft.com">www.whitecanvassoft.com</a>
+            </p>
         </div>
     </div><!--/copyright-->
 </div>
