@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Author, Tag, Category, Question, Answer, Post, Type
+from .models import Author, Tag, Category, Question, Answer, Post, Type, AuthorRole
 
-admin.site.register([Tag, Category, Answer, Post])
+admin.site.register([Tag, Category, Answer, Post, AuthorRole])
 
 
 class TagInline(admin.TabularInline):

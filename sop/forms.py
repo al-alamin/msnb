@@ -18,7 +18,6 @@ class SOPSubmitForm(forms.Form):
     def clean(self):
         super(SOPSubmitForm, self).clean()
         sop_file = self.cleaned_data['file']
-        print(sop_file.content_type)
         if sop_file.size > 5 * 1024 * 1024:
             raise forms.ValidationError("File size exceeded 5MB limit")
         if sop_file.content_type not in SUPPORTED_SOP_FILE_TYPES:
