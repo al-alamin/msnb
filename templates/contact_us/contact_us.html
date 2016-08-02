@@ -1,5 +1,90 @@
 {% extends "common/base.html" %}
 {% load staticfiles %}
 {% block content %}
-    {% include "contact_us/contact_us_form.html" %}
+    <div class="breadcrumbs breadcrumbs-dark">
+			<div class="container">
+				<h1 class="pull-left">Contact Us</h1>
+			</div>
+		</div>
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="row margin-bottom-30">
+            <div class="col-md-9 mb-margin-bottom-30">
+                <div class="headline"><h2>Contact Form</h2></div>
+                <p>Feel free to contact us</p><br/>
+
+                <form action="{% url 'contactus' %}" method="post" id="contactus-form"
+                      class="sky-form contact-style {% if success %}submited{% endif %}">
+                    {% csrf_token %}
+                    <fieldset class="no-padding">
+                        {{ form.non_field_errors }}
+
+                        <label>Name <span class="color-red">*</span></label>
+
+                        <div class="row sky-space-20">
+                            <div class="col-md-7 col-md-offset-0">
+                                <div>
+                                    {{ form.name.errors }}
+                                    {{ form.name }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Email <span class="color-red">*</span></label>
+
+                        <div class="row sky-space-20">
+                            <div class="col-md-7 col-md-offset-0">
+                                <div>
+                                    {{ form.email.errors }}
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>Message <span class="color-red">*</span></label>
+
+                        <div class="row sky-space-20">
+                            <div class="col-md-11 col-md-offset-0">
+                                <div>
+                                    {{ form.msg.errors }}
+                                    {{ form.msg }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            <button type="submit" class="btn-u">Send Message</button>
+                        </p>
+                    </fieldset>
+
+                    <div class="message">
+                        <i class="rounded-x fa fa-check"></i>
+
+                        <p>Your message was successfully sent!</p>
+                    </div>
+                </form>
+            </div><!--/col-md-9-->
+
+            <div class="col-md-3">
+                <!-- Contacts -->
+                <div class="headline"><h2>Contacts</h2></div>
+                <ul class="list-unstyled who margin-bottom-30">
+                    <li><a href="#"><i class="fa fa-home"></i>25, Central Road, Dhanmondi, Dhaka, Bangladesh</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i>support@mystudynotebook.com</a></li>
+                    <li><a href="#"><i class="fa fa-globe"></i>http://mystudynotebook.com</a></li>
+                </ul>
+
+                <!-- Why we are? -->
+                <div class="headline"><h2>Why we are?</h2></div>
+                <p>It is our motto to aid students to have the best answer for their questions that will aid in their
+                    higher studies and better future. </p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-check color-green"></i> Experts from all over the world</li>
+                    <li><i class="fa fa-check color-green"></i> Experienced reviewer from top universities</li>
+                    <li><i class="fa fa-check color-green"></i> Happy to help</li>
+                </ul>
+            </div><!--/col-md-3-->
+        </div><!--/row-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
 {% endblock %}

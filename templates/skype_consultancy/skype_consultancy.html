@@ -1,6 +1,7 @@
 {% extends "common/base.html" %}
 {% load staticfiles %}
 {% block content %}
-    {% include "skype_consultancy/skype_consultancy_content.html" %}
-    {% include "skype_consultancy/next_session_presenter.html" %}
+    {% include "skype_consultancy/image_banner.html" %}
+    <div class="bg-color-light">{% include "skype_consultancy/top_block.html" %}</div>
+     {% include "skype_consultancy/next_session.html" %}
 {% endblock %}
