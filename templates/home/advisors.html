@@ -3,7 +3,7 @@
     <div class="row team-v4">
         <!-- Owl Carousel v1 -->
         <div class="owl-carousel-v1 margin-bottom-50">
-            <div class="headline-center"><h2>Who is reviewing your SOP?</h2></div>
+            <div class="headline-center"><h2>Who is working for you?</h2></div>
 
             <div class="owl-navigation">
                 <div class="customNavigation">
@@ -19,9 +19,9 @@
                         <small>- {{ advisor.role.last }} -</small>
                         <p>{{ advisor.bio }}</p>
                         <ul class="list-inline team-social-v4">
-                            <li><a href="#"><i class="rounded-x fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="rounded-x fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="rounded-x fa fa-linkedin"></i></a></li>
+                            <li><a href="{{ advisor.facebook_link }}" target="_blank"><i class="rounded-x fa fa-facebook"></i></a></li>
+                            <li><a href="{{ advisor.twitter_link }}" target="_blank"><i class="rounded-x fa fa-twitter"></i></a></li>
+                            <li><a href="{{ advisor.linkedin_link }}" target="_blank"><i class="rounded-x fa fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 {% endfor %}

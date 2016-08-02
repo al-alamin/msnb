@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import SOPSubmitForm
+from models.models import Author
 
 
 def sop(request):
@@ -11,4 +12,8 @@ def sop(request):
             email_success = form.email_SOP(file)
     else:
         form = SOPSubmitForm()
-    return render(request, 'sop/sop_review.html', {'form': form, 'email_success': email_success})
+    reviewers = Author.objects.filter(role__role='Reviewer').distinct()
+    context = {'form': form,
+               'email_success': email_success,
+               'reviewers':reviewers}
+    return render(request, 'sop/sop_review.html',context )
