@@ -115,7 +115,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG:
     DEBUG_PROPAGATE_EXCEPTIONS = True
-    INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
+    # INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
 # for email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
