@@ -4,7 +4,7 @@ from django.db.models import Q
 
 
 class FaqSearchForm(forms.Form):
-    attrs = {"class": "form-control", "placeholder": "search"}
+    attrs = {"class": "form-control", "placeholder": "search", "required": "required"}
     search_item = forms.CharField(max_length=100, widget=forms.TextInput(attrs=attrs))
 
     def get_search_result(self):

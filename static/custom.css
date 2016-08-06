@@ -283,7 +283,9 @@
 
 
 
-
+.s-results .inner-results h3{
+  text-transform: none !important;
+}
 
 
 

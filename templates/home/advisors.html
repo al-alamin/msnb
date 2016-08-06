@@ -17,7 +17,7 @@
                         <img class="img-responsive" src="{{ MEDIA_URL }}{{ advisor.thumbnail }}" alt="">
                         <span>{{ advisor.first_name }} {{ advisor.last_name }}</span>
                         <small>- {{ advisor.role.last }} -</small>
-                        <p>{{ advisor.bio }}</p>
+                        <p>{{ advisor.short_bio|safe }}</p>
                         <ul class="list-inline team-social-v4">
                             <li><a href="{{ advisor.facebook_link }}" target="_blank"><i class="rounded-x fa fa-facebook"></i></a></li>
                             <li><a href="{{ advisor.twitter_link }}" target="_blank"><i class="rounded-x fa fa-twitter"></i></a></li>

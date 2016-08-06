@@ -16,12 +16,13 @@ class Author(models.Model):
     last_name = models.CharField(max_length=30)
     email = models.EmailField()
     url = models.URLField(blank=True, null=True)
-    bio = models.TextField(max_length=500, blank=True, null=True)
+    short_bio = models.TextField(max_length=200, blank=True, null=True)
+    long_bio = models.TextField(max_length=5000, blank=True, null=True)
     role = models.ManyToManyField(AuthorRole)
-    facebook_link = models.URLField(blank=True)
-    linkedin_link = models.URLField(blank=True)
-    twitter_link = models.URLField(blank=True)
-    gplus_link = models.URLField(blank=True)
+    facebook_link = models.URLField(blank=True, null=True)
+    linkedin_link = models.URLField(blank=True, null=True)
+    twitter_link = models.URLField(blank=True, null=True)
+    gplus_link = models.URLField(blank=True, null=True)
     thumbnail = models.ImageField(upload_to='images/', default='images/user_default.jpg')
 
     def __str__(self):
@@ -46,7 +47,7 @@ class Tag(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    type = models.ForeignKey(Type, blank=True)
+    type = models.ForeignKey(Type, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -55,7 +56,7 @@ class Category(models.Model):
 class Question(models.Model):
     author = models.ForeignKey(Author)
     category = models.ManyToManyField(Category)
-    tag = models.ManyToManyField(Tag, blank=True)
+    tag = models.ManyToManyField(Tag, blank=True, null=True)
     text = models.TextField(max_length=500)
     date = models.DateField(auto_now_add=True)
 
