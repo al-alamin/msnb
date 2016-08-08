@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import SOPSubmitForm
 from models.models import Author
+from random import shuffle
 
 
 def sop(request):
@@ -13,6 +14,9 @@ def sop(request):
     else:
         form = SOPSubmitForm()
     reviewers = Author.objects.filter(role__role='Reviewer').distinct()
+    reviewers = list(reviewers)  # for shuffling purpose
+    shuffle(reviewers)
+
     context = {'form': form,
                'email_success': email_success,
                'reviewers':reviewers}

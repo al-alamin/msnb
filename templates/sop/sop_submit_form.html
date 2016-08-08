@@ -1,6 +1,6 @@
 <!-- Contacts -->
 {% load staticfiles %}
-<div class="container content">
+<div class="container content" id="sop_submit_form">
     <form action="{% url 'sop_review' %}" enctype="multipart/form-data" method="post" id="sky-form3" class="sky-form {% if email_success %} submited {% endif %}">
         {% csrf_token %}
         <header>Submit Your SOP</header>

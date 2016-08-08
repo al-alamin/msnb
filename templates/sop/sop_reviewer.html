@@ -3,12 +3,12 @@
 <div class="container content">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="heading heading-v1 margin-bottom-40">
+					<div class="heading heading-v1">
 						<h2>Who is reviewing your SOP?</h2>
 					</div>
 
 					<!-- Owl Carousel v1 -->
-					<div class="owl-carousel-v1 margin-bottom-50">
+					<div class="owl-carousel-v1">
 						<div class="owl-navigation">
 							<div class="customNavigation">
 								<a class="owl-btn prev-v1"><i class="fa fa-angle-left"></i></a>
@@ -22,7 +22,7 @@
                             <img class="img-responsive" src="{{ MEDIA_URL }}{{ reviewer.thumbnail }}" alt="">
                                 <h3>{{ reviewer.first_name }} {{ reviewer.last_name }}</h3>
 					            <h4>/ Reviewer</h4>
-                                <p>{{ reviewer.bio }}</p>
+                                <p>{{ reviewer.short_bio |safe }}</p>
 							</div>
                             {% endfor %}
 
