@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'faq',
     'home',
-    'models',
     'sop',
     'to_do',
     'contact_us',
