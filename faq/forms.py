@@ -1,6 +1,7 @@
 from django import forms
-from models import models
 from django.db.models import Q
+
+from common import models
 
 
 class FaqSearchForm(forms.Form):

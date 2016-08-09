@@ -1,5 +1,6 @@
 from django.test import TestCase
-from models import models
+
+from common import models
 
 
 class TestRelatedModels(TestCase):
@@ -19,11 +20,11 @@ class TestRelatedModels(TestCase):
         cat.save()
         author = models.Author(first_name='abu', last_name='obaida', email='tareqbuet@gmail.com')
         author.save()
-        question = models.Question(author=author,text='sample question')
+        question = models.Question(author=author, text='sample question')
         question.save()
         ans = models.Answer(author=author, question=question, text='sample ans 1')
         ans.save()
-        question = models.Question(author=author,text='sample question2')
+        question = models.Question(author=author, text='sample question2')
         question.save()
         ans = models.Answer(author=author, question=question, text='sample ans 2-1')
         ans.save()

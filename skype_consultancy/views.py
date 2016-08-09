@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from models.models import Author
+
+from common.models import Author
+
 
 # Create your views here.
 def skype(request):

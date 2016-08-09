@@ -1,7 +1,9 @@
-from django.shortcuts import render
-from .forms import SOPSubmitForm
-from models.models import Author
 from random import shuffle
+
+from django.shortcuts import render
+
+from common.models import Author
+from .forms import SOPSubmitForm
 
 
 def sop(request):

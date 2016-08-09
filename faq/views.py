@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from models import models
+
+from common import models
 from .forms import FaqSearchForm
 
 

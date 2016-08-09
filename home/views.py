@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from models.models import Author
 from random import shuffle
+
+from django.shortcuts import render
+
+from common.models import Author
 
 
 # Create your views here.

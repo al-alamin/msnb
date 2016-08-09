@@ -1,5 +1,7 @@
 from django.test import TestCase
-from models.models import Author, AuthorRole
+
+from common.models import Author, AuthorRole
+
 
 class TestViews(TestCase):
 
