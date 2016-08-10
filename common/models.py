@@ -56,7 +56,7 @@ class Category(models.Model):
 class Question(models.Model):
     author = models.ForeignKey(Author)
     category = models.ManyToManyField(Category)
-    tag = models.ManyToManyField(Tag, blank=True, null=True)
+    tag = models.ManyToManyField(Tag, blank=True)
     text = models.TextField(max_length=500)
     date = models.DateField(auto_now_add=True)
 

@@ -14,7 +14,7 @@ class ContactUsForm(forms.Form):
         subject = "{0} from My Study Notebook wants to contact you".format(name)
         msg = self.cleaned_data['msg']
         from_email = self.cleaned_data['email']
-        to_email = ('support@whitecanvassoft.com',)  # must be a list or tuple
+        to_email = ('tareqbuet@gmail.com',)  # must be a list or tuple
         try:
             mail.send_mail(subject, msg, from_email, to_email, fail_silently=False)
         except Exception as ex:
