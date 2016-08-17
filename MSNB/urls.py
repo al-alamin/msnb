@@ -28,6 +28,8 @@ from to_do.views import to_do
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url('', include('social.apps.django_app.urls', namespace='social')),  # for python social auth
+    url('', include('django.contrib.auth.urls', namespace='auth')),  # for django default authentication system
     url(r'^$', home, name='home'),
     url(r'^faq/$', faq, name='faq'),
     url(r'^faq/search/$', search_result, name='faq_search'),

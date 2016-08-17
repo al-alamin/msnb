@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 wsgi.py
+db.sqlite3

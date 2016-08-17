@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',  # For python social auth
     'faq',
     'home',
     'sop',
@@ -70,6 +71,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.media',  # That will make MEDIA_URL available in your template context.
+                'social.apps.django_app.context_processors.backends',  # for python social auth
+                'social.apps.django_app.context_processors.login_redirect',  # for python social auth
             ],
         },
     },
@@ -115,6 +118,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG:
     DEBUG_PROPAGATE_EXCEPTIONS = True
     # INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
+
 # for email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -122,3 +126,20 @@ EMAIL_HOST = 'mail.parmeeda.com'
 EMAIL_HOST_USER = 'abu.obaida@parmeeda.com'
 EMAIL_HOST_PASSWORD = 'WcsParmeeda00*'
 EMAIL_PORT = 587
+
+#  python social auth settings
+# https://console.developers.google.com/
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '111230074308-srvkkrn0l32gta34kgidk5pl00ki86tt.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 's72eKTWmVpbeQtzvNWCUdOrM'
+# https://developers.facebook.com/apps/?action=create
+SOCIAL_AUTH_FACEBOOK_KEY = '1174313519256593'
+SOCIAL_AUTH_FACEBOOK_SECRET = '064c5718e7ff0179725198f9254a9b19'
+# required to get email from facebook.
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email',}
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)

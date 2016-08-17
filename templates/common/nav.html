@@ -1,55 +1,83 @@
-
 {% load static %}
-        <link rel="stylesheet" href="{% static 'unify_assets/css/headers/header-v3.css' %}">
+<link rel="stylesheet" href="{% static 'unify_assets/css/headers/header-v3.css' %}">
 
 
 <div class="header-v3 header-sticky ">
-			<!-- Navbar -->
-			<div class="navbar navbar-default mega-menu" role="navigation">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="fa fa-bars"></span>
-						</button>
-						<a class="navbar-brand" href="{% url 'home' %}">
-{#							<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">#}
-                            <h2>My Study Notebook</h2>
-						</a>
-					</div>
+    <!-- Navbar -->
+    <div class="navbar navbar-default mega-menu" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    {#							<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">#}
+                    <h2>My Study Notebook</h2>
+                </a>
+            </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="navbar-collapse mega-menu navbar-responsive-collapse collapse in" aria-expanded="true">
-						<div class="container">
-            <ul class="nav navbar-nav">
-                <li class="{% if request.resolver_match.url_name == "home" %}active{% endif %} page-scroll home"><a href="/">Home </a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse mega-menu navbar-responsive-collapse collapse in" aria-expanded="true">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li class="{% if request.resolver_match.url_name == "home" %}active{% endif %}">
+                            <a href="/">Home </a></li>
 
-                <li class="page-scroll {% if request.resolver_match.url_name == "faq" %}active{% endif %}"><a href="/faq/">FAQ</a></li>
+                        <li class=" {% if request.resolver_match.url_name == "faq" %}active{% endif %}"><a
+                                href="/faq/">FAQ</a></li>
 
-                <li class="page-scroll {% if request.resolver_match.url_name == "sop_review" %}active{% endif %}"><a href="/sop/">SOP REVIEW</a></li>
+                        <li class=" {% if request.resolver_match.url_name == "sop_review" %}active{% endif %}">
+                            <a href="/sop/">SOP REVIEW</a></li>
 
-{#                <li class="page-scroll {% if request.resolver_match.url_name == "to_do" %}active{% endif %}"><a href="/to_do/">To-Do</a></li>#}
+                        {#                <li class="page-scroll {% if request.resolver_match.url_name == "to_do" %}active{% endif %}"><a href="/to_do/">To-Do</a></li>#}
 
-                <li class="page-scroll {% if request.resolver_match.url_name == "skype" %}active{% endif %}"><a href="/skype/">Skype Session</a></li>
+                        <li class="{% if request.resolver_match.url_name == "skype" %}active{% endif %}"><a
+                                href="/skype/">Skype Session</a></li>
 
-                <li class="page-scroll {% if request.resolver_match.url_name == "contactus" %}active{% endif %}"><a href="/contactus/">Contact Us</a></li>
+                        <li class="{% if request.resolver_match.url_name == "contactus" %}active{% endif %}">
+                            <a href="/contactus/">Contact Us</a></li>
+                        <!-- Home -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                {% if user and not user.is_anonymous %}
+                                    Welcome {{ user.first_name|default:user.username }} !
+                                {% else %}
+                                    Login
+                                {% endif %}
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if user and user.is_anonymous %}
+                                    <li><a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><i
+                                            class="fa fa-google fa-lg color-red"></i>Login with Google</a></li>
+                                    <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><i
+                                            class="fa fa-facebook-official fa-lg color-dark-blue"></i>Login with
+                                        Facebook</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
 
-                <!-- Search Block -->
-				<li>
-					<i class="search fa fa-search search-btn"></i>
-					<div class="search-open">
-						<div class="input-group animated fadeInDown">
-							<gcse:searchbox-only resultsUrl="{% url 'google_search' %}"></gcse:searchbox-only>
-						</div>
-					</div>
-				</li>
-				<!-- End Search Block -->
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
 
-            </ul>
-						</div><!--/end container-->
-					</div><!--/navbar-collapse-->
-				</div>
-			</div>
-			<!-- End Navbar -->
-		</div>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <gcse:searchbox-only resultsUrl="{% url 'google_search' %}"></gcse:searchbox-only>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End Search Block -->
+
+                    </ul>
+                </div><!--/end container-->
+            </div><!--/navbar-collapse-->
+        </div>
+    </div>
+    <!-- End Navbar -->
+</div>
