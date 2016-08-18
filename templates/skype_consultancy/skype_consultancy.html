@@ -1,16 +1,7 @@
 {% extends "common/base.html" %}
-{% load staticfiles %}
 {% block content %}
     {% include "skype_consultancy/image_banner.html" %}
-        <div class="breadcrumbs">
-        <div class="container">
-                           <h1>Next Session Date And Time</h1>
-                <p><strong class="color-red"><i class="fa  fa-calendar"></i>
-                    13th September, 2016,9 PM Bangladesh time</strong>
-                <i class="fa  fa-skype"></i> Skype Name: MSNB
-                <i class="fa  fa-envelope"></i> Email: support@mystudynotebook.com</p>
-        </div>
-    </div>
+    {% include "skype_consultancy/top_breadcrumb.html" %}
     <div class="bg-color-light">{% include "skype_consultancy/top_block.html" %}</div>
      {% include "skype_consultancy/next_session.html" %}
 {% endblock %}

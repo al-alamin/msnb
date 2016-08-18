@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'contact_us',
     'skype_consultancy',
     'common',
+    'event',
 )
 
 MIDDLEWARE_CLASSES = (
