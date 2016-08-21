@@ -1,12 +1,5 @@
 <div class="container content text-center headline-center">
-    {% if  messages %}
-        {% for message in messages %}
-            <div class="alert {{ message.extra_tags }} fade in alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+{% include 'common/messages.html' %}
     <h2 class="headline-brd ">Next Skype Session Date And Time</h2>
 
     <h5 class="margin-bottom-20"><i class="fa  fa-calendar"></i>{{ event.start_time }} Bangladesh time&nbsp;
