@@ -1,4 +1,12 @@
 <div class="container content text-center headline-center">
+    {% if  messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.extra_tags }} fade in alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <h2 class="headline-brd ">Next Skype Session Date And Time</h2>
 
     <h5 class="margin-bottom-20"><i class="fa  fa-calendar"></i>{{ event.start_time }} Bangladesh time&nbsp;
@@ -10,15 +18,7 @@
     {% if user and user.is_anonymous %}
         <h5><a href="#">Please Login to Register</a></h5>
     {% else %}
-        {% if  reg_success %}
-            <div class="alert alert-success fade in alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <p><strong>Congratulations! You are registered !</strong></p>
-            {% if email_success %}
-                <p> A confirmation email is sent to your email address</p>
-                {% endif %}
-            </div>
-        {% elif is_user_registered %}
+        {% if is_user_registered %}
             <h5 class="color-green">You are registered for this event</h5>
             <h5><a href="#" data-toggle="modal" data-target="#del_modal">Withdraw My Registration</a></h5>
 
@@ -26,7 +26,5 @@
             <button class="btn-u" type="button" data-toggle="modal" data-target="#myModal">Register !</button>
         {% endif %}
     {% endif %}
-    {% if reg_success %}
 
-    {% endif %}
 </div>

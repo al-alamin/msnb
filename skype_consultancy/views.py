@@ -5,13 +5,12 @@ from event.models import Event, Registration
 from django.utils.timezone import now
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import EventRegistrationForm, EventRegistrationDeleteForm
+from django.contrib import messages
 
 
 # Create your views here.
 def skype(request):
     context = {}
-    reg_success = False
-    email_success = False
     is_user_registered = False
     form = None
     del_form = None
@@ -26,6 +25,14 @@ def skype(request):
             form = EventRegistrationForm(request.POST)
             if form.is_valid():
                 reg_success, email_success = form.save_and_mail(user=user, event=event)
+                if reg_success:
+                    messages.success(request,
+                                     'Congratulations! You are registered for the event',
+                                     extra_tags='alert-success')
+                if email_success:
+                    messages.info(request,
+                                     'A confirmation email is sent to your email address',
+                                     extra_tags='alert-info')
         else:
             form = EventRegistrationForm()
 
@@ -40,8 +47,6 @@ def skype(request):
                 initialdict = {'reg_id': reg.id}
                 del_form = EventRegistrationDeleteForm(initialdict)
 
-    context['reg_success'] = reg_success
-    context['email_success'] = email_success
     context['is_user_registered'] = is_user_registered
     context['form'] = form
     context['del_form'] = del_form
@@ -51,12 +56,14 @@ def skype(request):
 
 @login_required
 def delete_skype_registration(request):
-    del_success = False
     if request.method == 'POST':
         form = EventRegistrationDeleteForm(request.POST)
         user = request.user
         if form.is_valid():
             del_success = form.del_registraion(user)
+            if del_success:
+                messages.success(request,
+                                 'You registration is withdrawn from this event',
+                                 extra_tags='alert-warning')
 
-    print('del_success', del_success)
     return redirect('/skype/')

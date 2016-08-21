@@ -37,7 +37,7 @@ class EventRegistrationForm(forms.ModelForm):
                          Support Team
                          My Study Notebook
                          """ .format(user.first_name, event.title, event.start_time, event.duration)
-            # email_success = send_mail(subject, body_email, to_email)
+            email_success = send_mail(subject, body_email, to_email)
 
         return reg_success, email_success
 
