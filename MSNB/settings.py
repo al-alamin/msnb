@@ -26,6 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMIN_EMAILS = ['tareqbuet@gmail.com', ]
+
 # Application definition
 
 INSTALLED_APPS = (

@@ -1,5 +1,5 @@
 from django import forms
-from common.utils import send_mail_to_admin
+from common.utils import send_mail
 
 SUPPORTED_SOP_FILE_TYPES = ['application/msword',
                             'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
@@ -28,5 +28,5 @@ class SOPSubmitForm(forms.Form):
         from_email = self.cleaned_data['email']
         msg = self.cleaned_data['msg']
         subject = "{0} submitted a SOP for review".format(name)
-        email_success = send_mail_to_admin(subject, msg, from_email, attachmets=file)
+        email_success = send_mail(subject, msg, from_email=from_email, attachmets=file)
         return email_success

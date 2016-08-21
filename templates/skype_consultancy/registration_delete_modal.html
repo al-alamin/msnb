@@ -1,0 +1,28 @@
+<div class="modal fade del_modal" id="del_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Do you really want to withdraw?</h4>
+            </div>
+
+            <div class="modal-body">
+                <form id="del-form" method="post" action="{% url 'reg_withdraw' %}" class="sky-form " style="border: none">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {{ del_form.reg_id }}
+                    <label class="checkbox">
+                        {{ del_form.delete.errors }}
+                        {{ del_form.delete }}
+                        <i></i>I want to withdraw my registration</label>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-u btn-u-default" data-dismiss="modal">Close</button>
+                <button type="submit" form="del-form" class="btn-u">Submit</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

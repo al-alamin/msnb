@@ -6,12 +6,12 @@
             <h2 class="headline-brd">Our next presenter</h2>
         </div>
         <div class="col-md-5 ">
-            <img class="img-responsive" src="{{ MEDIA_URL }}{{ next_presenter.thumbnail }}" alt="">
+            <img class="img-responsive" src="{{ MEDIA_URL }}{{ event.presenter.thumbnail }}" alt="">
         </div>
         <div class="col-md-7">
-            <h2>{{ next_presenter.first_name }} {{ next_presenter.last_name }}</h2>
+            <h2>{{ event.presenter.first_name }} {{ event.presenter.last_name }}</h2>
 
-            <p>{{ next_presenter.long_bio |safe }}</p>
+            <p>{{ event.presenter.long_bio |safe }}</p>
         </div>
 
     </div><!--/end row-->

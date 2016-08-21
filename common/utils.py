@@ -1,16 +1,16 @@
 from django.core.mail import EmailMessage
+from MSNB.settings import ADMIN_EMAILS
 
-
-def send_mail_to_admin(subject, body, from_email, bcc=None, attachmets=None):
+PRIMARY_ADMIN_EMAIL = ADMIN_EMAILS[0]
+def send_mail(subject, body, to_email=ADMIN_EMAILS, from_email = PRIMARY_ADMIN_EMAIL, bcc=None, attachmets=None):
     email_success = False
-    to = ('tareqbuet@gmail.com',)
-    email = EmailMessage(subject, body, from_email, to)
+    email = EmailMessage(subject, body, from_email, to_email, bcc)
     if attachmets is not None:
         email.attach(attachmets.name, attachmets.read(), attachmets.content_type)
     try:
         email.send()
-    except:
-        print('mail failed')
+    except Exception as e:
+        print('mail failed' + e.__str__())
     else:
         email_success = True
     return email_success

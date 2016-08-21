@@ -1,7 +1,9 @@
 {% extends "common/base.html" %}
 {% block content %}
+    {% include "skype_consultancy/registration_modal.html" %}  {# it will be hidden#}
+    {% include "skype_consultancy/registration_delete_modal.html" %}  {# it will be hidden#}
     {% include "skype_consultancy/image_banner.html" %}
-    {% include "skype_consultancy/top_breadcrumb.html" %}
+    {% if event %}{% include "skype_consultancy/event_info.html" %}{% endif %}
     <div class="bg-color-light">{% include "skype_consultancy/top_block.html" %}</div>
-     {% include "skype_consultancy/next_session.html" %}
+     {% if event %}{% include "skype_consultancy/next_session.html" %}{% endif %}
 {% endblock %}
