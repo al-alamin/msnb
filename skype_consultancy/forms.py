@@ -1,9 +1,11 @@
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
-from event.models import Registration
-from MSNB.settings import ADMIN_EMAILS
 from common.utils import send_mail
+from event.models import Registration
+
+ADMIN_EMAILS = settings.ADMIN_EMAILS
 
 
 class EventRegistrationForm(forms.ModelForm):
@@ -36,7 +38,7 @@ class EventRegistrationForm(forms.ModelForm):
                          Thanks,
                          Support Team
                          My Study Notebook
-                         """ .format(user.first_name, event.title, event.start_time, event.duration)
+                         """.format(user.first_name, event.title, event.start_time, event.duration)
             email_success = send_mail(subject, body_email, to_email)
 
         return reg_success, email_success
@@ -49,7 +51,7 @@ class EventRegistrationDeleteForm(forms.Form):
     def del_registraion(self, user):
         delete = self.cleaned_data['delete']
         id = self.cleaned_data['reg_id']
-        print('id',id)
+        print('id', id)
         del_success = False
         if delete:
             try:
@@ -58,6 +60,6 @@ class EventRegistrationDeleteForm(forms.Form):
                 print('does not exist')
             else:
                 reg.delete()
-                del_success= True
+                del_success = True
 
         return del_success
