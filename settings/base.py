@@ -19,10 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&yp%!@^)6^5%6wq3q$7o)$&0qvpec4hek2ik**t-5m0x7#0oxi'
+SECRET_KEY = os.environ['SECRET_KEY']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -46,6 +44,7 @@ INSTALLED_APPS = (
     'skype_consultancy',
     'common',
     'event',
+    'settings',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,25 +117,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, "server_static")
 # media files. Uploaded by user
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-if DEBUG:
-    DEBUG_PROPAGATE_EXCEPTIONS = True
-    # INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
-
 # for email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'mail.parmeeda.com'
 EMAIL_HOST_USER = 'abu.obaida@parmeeda.com'
-EMAIL_HOST_PASSWORD = 'WcsParmeeda00*'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 
 #  python social auth settings
 # https://console.developers.google.com/
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '111230074308-srvkkrn0l32gta34kgidk5pl00ki86tt.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 's72eKTWmVpbeQtzvNWCUdOrM'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET']
 # https://developers.facebook.com/apps/?action=create
 SOCIAL_AUTH_FACEBOOK_KEY = '1174313519256593'
-SOCIAL_AUTH_FACEBOOK_SECRET = '064c5718e7ff0179725198f9254a9b19'
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['SOCIAL_AUTH_FACEBOOK_SECRET']
 # required to get email from facebook.
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email',}
