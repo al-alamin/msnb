@@ -24,7 +24,7 @@ class EventRegistrationForm(forms.ModelForm):
         else:
             reg_success = True
         if reg_success:
-            to_email = ADMIN_EMAILS + [user.email, ]
+            to_email = [user.email, ]
             subject = "Your event registration is confirmed for the event {0}".format(event.title)
             body_email = """
                          Hi {0},
