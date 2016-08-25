@@ -9,11 +9,11 @@
         <i class="fa  fa-skype"></i> Skype ID: MSNB &nbsp;
         <i class="fa  fa-envelope"></i> Email: support@mystudynotebook.com</h5>
     {% if user and user.is_anonymous %}
-        <h5><a href="#">Please Login to Register</a></h5>
+        <h5 class="color-red">Please login to register</h5>
     {% else %}
         {% if is_user_registered %}
             <h5 class="color-green">You are registered for this event</h5>
-            <h5><a href="#" data-toggle="modal" data-target="#del_modal">Withdraw My Registration</a></h5>
+            <h5><a href="#" data-toggle="modal" data-target="#del_modal">Withdraw my registration</a></h5>
 
         {% else %}
             <button class="btn-u" type="button" data-toggle="modal" data-target="#myModal">Register !</button>

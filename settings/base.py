@@ -24,7 +24,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
-ADMIN_EMAILS = ['tareqbuet@gmail.com', ]
+ADMIN_EMAILS = ['support@mystudynotebook.com','tareqbuet@gmail.com', ]
 
 # Application definition
 
