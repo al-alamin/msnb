@@ -21,7 +21,8 @@ def skype(request):
         context['event'] = event
         user = request.user
         # if event does not exist, there should be no registration
-        if request.method == 'POST':
+        # event registration must be available to be able to register
+        if request.method == 'POST' and event.is_registration_open:
             form = EventRegistrationForm(request.POST)
             if form.is_valid():
                 reg_success, email_success = form.save_and_mail(user=user, event=event)

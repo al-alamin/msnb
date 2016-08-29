@@ -27,7 +27,7 @@ class Event(models.Model):
 
     @property
     def is_registration_open(self):
-        return self.available_seats != 0 and self.start_time > now()
+        return self.available_seats > 0 and self.start_time > now()
 
     @property
     def duration(self):

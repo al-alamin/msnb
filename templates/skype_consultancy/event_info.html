@@ -8,7 +8,9 @@
         {{ event.available_seats }} out of {{ event.registration_limit }} &nbsp;
         <i class="fa  fa-skype"></i> Skype ID: MSNB &nbsp;
         <i class="fa  fa-envelope"></i> Email: support@mystudynotebook.com</h5>
-    {% if user and user.is_anonymous %}
+    {% if not event.is_registration_open %}
+        <h5 class="color-red">Registration is closed for this event. Please keep an eye for our next session</h5>
+    {% elif user and user.is_anonymous %}
         <h5 class="color-red">Please login to register</h5>
     {% else %}
         {% if is_user_registered %}
