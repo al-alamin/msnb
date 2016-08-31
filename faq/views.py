@@ -5,6 +5,7 @@ from .forms import FaqSearchForm
 
 
 def faq(request):
+    # News and Blog should not be added in FAQ page
     types = models.Type.objects.all().exclude(name='News')
     recent_q = models.Question.objects.all().order_by('date')[:20]
     popular_q = models.Question.objects.filter(category__name='Popular').order_by('date')[:20]
@@ -18,6 +19,7 @@ def faq(request):
 
 
 def search_result(request, cat_id=None, tag_id=None):
+    # News and Blog should not be added in FAQ page
     types = models.Type.objects.all().exclude(name='News')
     faq_search_form = FaqSearchForm()
     search_for = ''

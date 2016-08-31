@@ -1,5 +1,9 @@
+import logging
+
 from django import forms
 from django.core import mail
+
+logger = logging.getLogger('django')
 
 
 class ContactUsForm(forms.Form):
@@ -18,7 +22,9 @@ class ContactUsForm(forms.Form):
         try:
             mail.send_mail(subject, msg, from_email, to_email, fail_silently=False)
         except Exception as ex:
-            print(type(ex).__name__, ex.args)
+            msg = 'contact us mail failed to send from {0}'.format(from_email)
+            logger.exception(msg)
         else:
             success = True
+            logger.info('contact us mail received from {0}'.format(from_email))
         return success

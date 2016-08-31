@@ -1,11 +1,11 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from common.models import Author, Category
-from event.models import Event, Registration
-from django.utils.timezone import now
-from django.core.exceptions import ObjectDoesNotExist
-from .forms import EventRegistrationForm, EventRegistrationDeleteForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render, redirect
+from django.utils.timezone import now
+
+from event.models import Event, Registration
+from .forms import EventRegistrationForm, EventRegistrationDeleteForm
 
 
 # Create your views here.
@@ -32,8 +32,8 @@ def skype(request):
                                      extra_tags='alert-success')
                 if email_success:
                     messages.info(request,
-                                     'A confirmation email is sent to your email address',
-                                     extra_tags='alert-info')
+                                  'A confirmation email is sent to your email address',
+                                  extra_tags='alert-info')
         else:
             form = EventRegistrationForm()
 

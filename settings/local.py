@@ -1,7 +1,29 @@
 from .base import *
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 INSTALLED_APPS += ('debug_toolbar',)
-MIDDLEWARE_CLASSES += ("debug_toolbar.middleware.DebugToolbarMiddleware", )
+MIDDLEWARE_CLASSES += ("debug_toolbar.middleware.DebugToolbarMiddleware",)
+
+# logging settings for local. print to console. in production save to file
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(module)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}

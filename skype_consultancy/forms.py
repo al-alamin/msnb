@@ -1,9 +1,13 @@
+import logging
+
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
 from common.utils import send_mail
 from event.models import Registration
+
+logger = logging.getLogger('django')
 
 ADMIN_EMAILS = settings.ADMIN_EMAILS
 
@@ -21,8 +25,10 @@ class EventRegistrationForm(forms.ModelForm):
             Registration.objects.create(attendee=user, event=event, skype_id=skype_id)
         except:
             reg_success = False
+            logger.exception('Registration failed for the user {0} for the event {1}'.format(user,event))
         else:
             reg_success = True
+            logger.info('{0} user successfully registered for the event {1}'.format(user, event))
         if reg_success:
             to_email = [user.email, ]
             subject = "Your event registration is confirmed for the event {0}".format(event.title)
@@ -51,15 +57,17 @@ class EventRegistrationDeleteForm(forms.Form):
     def del_registraion(self, user):
         delete = self.cleaned_data['delete']
         id = self.cleaned_data['reg_id']
-        print('id', id)
         del_success = False
         if delete:
             try:
                 reg = Registration.objects.get(id=id, attendee=user)
             except ObjectDoesNotExist:
-                print('does not exist')
+                msg = 'Registration deletion failed for event id {0} and for user {1}'.format(id, user)
+                logger.exception(msg)
             else:
                 reg.delete()
                 del_success = True
+                msg = '{0}user registration deleted from the event id {1}'.format(user, id)
+                logger.info(msg)
 
         return del_success

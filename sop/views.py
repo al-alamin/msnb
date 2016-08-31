@@ -16,10 +16,11 @@ def sop(request):
     else:
         form = SOPSubmitForm()
     reviewers = Author.objects.filter(role__role='Reviewer').distinct()
+    # show reviewers in random
     reviewers = list(reviewers)  # for shuffling purpose
     shuffle(reviewers)
 
     context = {'form': form,
                'email_success': email_success,
-               'reviewers':reviewers}
-    return render(request, 'sop/sop_review.html',context )
+               'reviewers': reviewers}
+    return render(request, 'sop/sop_review.html', context)

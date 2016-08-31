@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.core.mail import EmailMessage
+import logging
+
+logger = logging.getLogger('django')
 
 ADMIN_EMAILS = settings.ADMIN_EMAILS
 PRIMARY_ADMIN_EMAIL = settings.PRIMARY_ADMIN_EMAIL
@@ -13,7 +16,9 @@ def send_mail(subject, body, to_email=ADMIN_EMAILS, from_email=PRIMARY_ADMIN_EMA
     try:
         email.send()
     except Exception as e:
-        print('mail failed' + e.__str__())
+        msg = 'mail failed to {0}'.format(to_email)
+        logger.exception(msg)
     else:
         email_success = True
+        logger.info('mail sent to {0}'.format(to_email))
     return email_success

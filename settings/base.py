@@ -21,10 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
 
-
 ALLOWED_HOSTS = []
 
-ADMIN_EMAILS = ['support@mystudynotebook.com','tareqbuet@gmail.com', ]
+ADMIN_EMAILS = ['support@mystudynotebook.com', 'tareqbuet@gmail.com', ]
 PRIMARY_ADMIN_EMAIL = 'support@mystudynotebook.com'
 
 # Application definition
@@ -106,6 +105,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# A list of all the people who get code error notifications.
+ADMINS = [('Abu Obaida', 'tareqbuet@gmail.com')]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -135,7 +137,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '1174313519256593'
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['SOCIAL_AUTH_FACEBOOK_SECRET']
 # required to get email from facebook.
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email',}
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email', }
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
 AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOAuth2',
