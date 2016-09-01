@@ -30,7 +30,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
+        '': {
             'handlers': ['production_file'],
             'level': 'INFO',
         },

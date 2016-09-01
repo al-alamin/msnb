@@ -2,7 +2,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 import logging
 
-logger = logging.getLogger('django')
+logger = logging.getLogger(__name__)
 
 ADMIN_EMAILS = settings.ADMIN_EMAILS
 PRIMARY_ADMIN_EMAIL = settings.PRIMARY_ADMIN_EMAIL

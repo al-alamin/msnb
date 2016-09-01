@@ -7,7 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from common.utils import send_mail
 from event.models import Registration
 
-logger = logging.getLogger('django')
+logger = logging.getLogger(__name__)
 
 ADMIN_EMAILS = settings.ADMIN_EMAILS
 

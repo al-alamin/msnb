@@ -3,7 +3,7 @@ import logging
 from django import forms
 from django.core import mail
 
-logger = logging.getLogger('django')
+logger = logging.getLogger(__name__)
 
 
 class ContactUsForm(forms.Form):
