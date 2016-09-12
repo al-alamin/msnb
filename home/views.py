@@ -16,5 +16,9 @@ def decision_making(request):
     return render(request, "home/decision_making.html")
 
 
+def preparation(request):
+    return render(request, "home/preparation.html")
+
+
 def google_custom_search(request):
     return render(request, 'google_custom_search/custom_search.html')

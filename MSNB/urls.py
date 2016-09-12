@@ -22,7 +22,7 @@ from home.views import home
 from faq.views import faq
 from skype_consultancy.views import skype, delete_skype_registration
 from faq.views import faq,search_result
-from home.views import home, google_custom_search, decision_making
+from home.views import home, google_custom_search, decision_making, preparation
 from sop.views import sop
 from to_do.views import to_do
 
@@ -32,6 +32,7 @@ urlpatterns = [
     url('', include('django.contrib.auth.urls', namespace='auth')),  # for django default authentication system
     url(r'^$', home, name='home'),
     url(r'^decision_making/$', decision_making, name='decision_making'),
+    url(r'^preparation/$', preparation, name='preparation'),
     url(r'^faq/$', faq, name='faq'),
     url(r'^faq/search/$', search_result, name='faq_search'),
     url(r'^faq/category/(?P<cat_id>\d+)/$', search_result, name='faq_search_cat'),
