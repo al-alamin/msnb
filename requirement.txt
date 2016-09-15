@@ -10,3 +10,4 @@ requests==2.11.0
 requests-oauthlib==0.6.2
 six==1.10.0
 sqlparse==0.2.1
+coverage==4.2

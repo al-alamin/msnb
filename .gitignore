@@ -3,4 +3,7 @@ __pycache__/
 *.pyc
 wsgi.py
 db.sqlite3
-media/
+media/coverage_html
+htmlcov/
+coverage_html/
+.coverage
