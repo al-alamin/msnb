@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.contrib.auth.models import User
-from django.test.testcases import TestCase
+from django.test import TestCase
 from django.utils.timezone import now
 from event.models import Event, Registration
 from common.models import Author
