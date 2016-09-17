@@ -17,12 +17,11 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+
 from contact_us.views import contactus
-from home.views import home
-from faq.views import faq
-from skype_consultancy.views import skype, delete_skype_registration
 from faq.views import faq,search_result
-from home.views import home, google_custom_search, decision_making, preparation
+from home.views import home, google_custom_search, decision_making, preparation, standard_exam
+from skype_consultancy.views import skype, delete_skype_registration
 from sop.views import sop
 from to_do.views import to_do
 
@@ -33,6 +32,7 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^decision_making/$', decision_making, name='decision_making'),
     url(r'^preparation/$', preparation, name='preparation'),
+    url(r'^standard_exam/$', standard_exam, name='standard_exam'),
     url(r'^faq/$', faq, name='faq'),
     url(r'^faq/search/$', search_result, name='faq_search'),
     url(r'^faq/category/(?P<cat_id>\d+)/$', search_result, name='faq_search_cat'),
@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^skype/$',skype, name='skype'),
     url(r'^skype/withdraw$',delete_skype_registration, name='reg_withdraw'),
     url(r'^contactus/$',contactus, name='contactus'),
+    url(r'^about_us/', include('about_us.urls')),
     url(r'^google_search/$', google_custom_search, name='google_search'),
 ]
 if settings.DEBUG is True:

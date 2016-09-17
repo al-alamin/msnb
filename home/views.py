@@ -20,5 +20,9 @@ def preparation(request):
     return render(request, "home/preparation.html")
 
 
+def standard_exam(request):
+    return render(request, "home/standard_exam.html")
+
+
 def google_custom_search(request):
     return render(request, 'google_custom_search/custom_search.html')
