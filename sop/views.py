@@ -16,7 +16,7 @@ def sop(request):
     # background_print.now(5)
     # Category.objects.create(name="new tag from view mehtod")
     
-    add.apply_async((4, 5), countdown=10)
+    # add.apply_async((4, 5), countdown=10)
 
     email_success = False
     if request.method == 'POST':

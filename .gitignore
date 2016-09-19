@@ -7,3 +7,4 @@ media/coverage_html
 htmlcov/
 coverage_html/
 .coverage
+run_test.sh
