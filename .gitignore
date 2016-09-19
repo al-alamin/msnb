@@ -8,3 +8,4 @@ htmlcov/
 coverage_html/
 .coverage
 run_test.sh
+runserver.sh
