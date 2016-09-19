@@ -18,27 +18,18 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from contact_us.views import contactus
-from faq.views import faq,search_result
-from home.views import home, google_custom_search, decision_making, preparation, standard_exam
-from skype_consultancy.views import skype, delete_skype_registration
-from sop.views import sop
-from to_do.views import to_do
+from home.views import google_custom_search
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),  # for python social auth
     url('', include('django.contrib.auth.urls', namespace='auth')),  # for django default authentication system
-    url(r'^$', home, name='home'),
-    url(r'^decision_making/$', decision_making, name='decision_making'),
-    url(r'^preparation/$', preparation, name='preparation'),
-    url(r'^standard_exam/$', standard_exam, name='standard_exam'),
+    url(r'^', include('home.urls')),
     url(r'^faq/', include('faq.urls')),
-    url(r'^sop/$', sop, name='sop_review'),
-    # url(r'^to_do/$',to_do, name='to_do'),
-    url(r'^skype/$',skype, name='skype'),
-    url(r'^skype/withdraw$',delete_skype_registration, name='reg_withdraw'),
-    url(r'^contactus/$',contactus, name='contactus'),
+    url(r'^sop/', include('sop.urls')),
+    # url(r'^to_do/', include('to_do.urls')),
+    url(r'^skype/', include('skype_consultancy.urls') ),
+    url(r'^contactus/', include('contact_us.urls')),
     url(r'^about_us/', include('about_us.urls')),
     url(r'^google_search/$', google_custom_search, name='google_search'),
 ]

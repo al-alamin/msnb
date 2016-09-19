@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .forms import ContactUsForm
 
 
-def contactus(request):
+def contact_us(request):
     success = False
 
     if request.method == 'POST':

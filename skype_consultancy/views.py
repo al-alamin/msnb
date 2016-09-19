@@ -14,7 +14,7 @@ def skype(request):
     is_user_registered = False
     form = None
     del_form = None
-    events = Event.objects.filter(start_time__gt=now(), category__name='skype_session')
+    events = Event.objects.filter(start_time__gt=now(), event_type='skype_session')
     if events.exists():
         # take the first event ordered by start date. It's the first upcoming event
         event = events.first()

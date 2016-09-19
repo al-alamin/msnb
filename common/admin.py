@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from common.models import Tag, Category, Post, Type, UserMeta
+from common.models import Tag, Category, Type, UserMeta
 
-admin.site.register([Tag, Category, Post, UserMeta])
+admin.site.register([Tag, Category, UserMeta])
 
 
 class TagInline(admin.TabularInline):
@@ -18,4 +18,3 @@ class TypeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Type, TypeAdmin)
-
