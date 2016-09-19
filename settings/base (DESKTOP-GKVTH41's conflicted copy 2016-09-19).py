@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
@@ -50,7 +49,6 @@ INSTALLED_APPS = (
     'background_task',
     'djcelery',
     'django_crontab',
-    "post_office",
 
 )
 
@@ -157,18 +155,8 @@ AUTHENTICATION_BACKENDS = (
 # CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
 # CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
 
-# from settings import local
-# import settings
-# CRONTAB_DJANGO_SETTINGS_MODULE = settings.local
-# CRONTAB_COMMAND_SUFFIX = '2>&1'
 
-
+CRONTAB_COMMAND_SUFFIX = '2>&1'
 CRONJOBS = [
-    # ('*/1 * * * *', 
-    # 'source ~/.virtualenvs/msnb2/bin/python && sop.cron.my_scheduled_job', 
-    #  '>> /tmp/scheduled_job.log')
-
-    ('*/1 * * * *', 
-    'sop.cron.my_scheduled_job', 
-     '>> /tmp/scheduled_job.log')
+    ('*/1 * * * *', 'sop.cron.my_scheduled_job', '>> file.log')
 ]

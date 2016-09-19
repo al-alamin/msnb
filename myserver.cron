@@ -1,0 +1,4 @@
+PATH=/home/alamin/.virtualenvs/msnb2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SHELL=/bin/bash
+* * * * * echo "echo output" >> /tmp/scheduled_job2.log
+* * * * * /home/alamin/.virtualenvs/msnb2/bin/python /mnt/340048A400486EC4/Dropbox/Programming/Django/msnb/HSS_Obaida/manage.py crontab run 1b4610074b04e59b2ba0dd62845a5c3f >> /tmp/scheduled_job.log 2>&1 # django-cronjobs for settings

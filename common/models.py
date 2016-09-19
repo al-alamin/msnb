@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class AuthorRole(models.Model):
     role_choices = (
         ('General', 'General'),
@@ -7,10 +8,13 @@ class AuthorRole(models.Model):
         ('Reviewer', 'Reviewer'),
         ('Presenter', 'Presenter')
     )
-    role = models.CharField(max_length=30,choices=role_choices)
+    role = models.CharField(max_length=30,
+                            choices=role_choices)
 
     def __str__(self):
         return self.role
+
+
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -23,10 +27,14 @@ class Author(models.Model):
     linkedin_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
     gplus_link = models.URLField(blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='images/', default='images/user_default.jpg')
+    thumbnail = models.ImageField(
+                    upload_to='images/',
+                    default='images/user_default.jpg')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+
 class Type(models.Model):
     """
     It's like parent category for category and tag. eg, Visa, Higher Study
@@ -87,3 +95,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.text
+def func():
+
+    return a;
+

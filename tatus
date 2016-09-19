@@ -1,0 +1,566 @@
+[33mcommit f60780dc288d21163eadd06ff30567ede7ca145b[m
+Author: alalamin25 <mdabdullahalalaminp@gmail.com>
+Date:   Thu Sep 15 12:57:35 2016 +0600
+
+    Adding coverage.py for test coverrage
+
+[33mcommit 2d2a13af219065aee7567c24548217714f5b8143[m
+Author: alalamin25 <mdabdullahalalaminp@gmail.com>
+Date:   Thu Sep 15 09:04:36 2016 +0600
+
+    Deleting event/test.py and skype_consultancy/test.py
+
+[33mcommit 1549362fbf407b9e0142814f5aedd67c703364d6[m
+Author: alalamin25 <mdabdullahalalaminp@gmail.com>
+Date:   Thu Sep 15 02:23:34 2016 +0600
+
+    Finished setting up environment in laptop
+
+[33mcommit 9bf2428ff87b850090b8b70a30cc9f38c89d9b78[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Sep 11 22:10:56 2016 -0500
+
+    Preparation page added
+
+[33mcommit d36504c21ad94c6e2bd21a086a6b8df8b6f3c12a[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Sep 11 01:25:53 2016 -0500
+
+    decision making page added
+
+[33mcommit 9e6d888e31aed34e364b217e8d7b3d1a1d95b1a6[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Sep 8 14:42:31 2016 -0500
+
+    admin.py file was accidentally deleted from event app. added it again.
+
+[33mcommit e09106cfb0e6edee301d1b60e4a3becc0d4d2043[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 31 19:47:49 2016 -0500
+
+    Little modification in logger setting
+
+[33mcommit 74227ca48afff06c442bf21cc4c945d81642cecf[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 31 15:07:14 2016 -0500
+
+    Logging framework integrated.
+
+[33mcommit e765b4dfdba0024ad28079764d4af9cb147f1014[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 29 12:39:35 2016 -0500
+
+    Fixed event info page.
+
+[33mcommit 14aafd3f99dba7e42e50fb2bb5444911148e1a28[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 29 12:07:51 2016 -0500
+
+    Fixed a bug. Prevent registration if seat is not available.
+
+[33mcommit 058dae546ad47982b32d5b7dd71436f5f7cb0e79[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Aug 25 14:35:45 2016 -0500
+
+    Mail settings little modified
+
+[33mcommit 58742608cd12259ab46693171ed8d76f6a7c2a37[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Aug 25 14:20:55 2016 -0500
+
+    Change admin email. Fixed few cosmetic issue. allowed hosts added in production settings
+
+[33mcommit 256392f411922d64a6cfc59cbca224d6eceefa75[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 22 11:49:20 2016 -0500
+
+    Added few missing files
+
+[33mcommit d6f901f0ca61be643312ccca4c00047024b0de39[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 22 10:41:27 2016 -0500
+
+    sqlite and media are removed from git
+
+[33mcommit 0488180e9d9f70d7741e2eff1013146fab51e95b[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Aug 21 03:05:17 2016 -0500
+
+    separate html is created in common folder for showing messages
+
+[33mcommit 6bc40a36baef0987639222d31253b204bded92dd[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Aug 21 02:58:36 2016 -0500
+
+    The messages framework incorporated
+
+[33mcommit 36b959554279fab8fba288b8ed1c436f79d8e36b[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Aug 21 01:53:15 2016 -0500
+
+    Registration system working
+
+[33mcommit 947554cb64d7605e33cc2251cb176a304938e564[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Aug 18 02:05:27 2016 -0500
+
+    event app created. models created
+
+[33mcommit 97d8c3b53826dac71d32930c275017c6b8c73b44[m
+Merge: 9a2f521 32cf750
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 16 21:48:18 2016 -0500
+
+    sqlite is removed from git
+
+[33mcommit 9a2f521b3ab05761b2cfaa8e7727dbb9e1690209[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 16 21:44:17 2016 -0500
+
+    python social auth incorporated. login system working perfect.
+
+[33mcommit 32cf750e363fa1c77fd79173e9e990e8a8439e44[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Tue Aug 16 21:39:08 2016 -0500
+
+    Delete db.sqlite3
+
+[33mcommit 570850b1b5d0cabb339292757fa4e4621de1ddc1[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Aug 11 02:06:19 2016 -0500
+
+    user added in production
+
+[33mcommit 1dc05aa317f13fbb84e3889445744522814c90d3[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 15:35:52 2016 -0500
+
+    banner image changed
+
+[33mcommit 482378f61cc8703c0a3f42a1106549382b18fe8e[m
+Merge: cf7d8af 7de10dc
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 15:30:21 2016 -0500
+
+    Merge branch 'master' of https://github.com/tareqobaida/HSS_Obaida
+     Please enter a commit message to explain why this merge is necessary,
+    
+    wsgi deleted in github
+
+[33mcommit 7de10dcb4a3edd59df93ccd523eb2f925a9261d7[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 15:30:11 2016 -0500
+
+    Delete wsgi.py
+
+[33mcommit cf7d8af9a725e680b50af85fbd0c81bc2b2ae3d9[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 15:24:15 2016 -0500
+
+    wording in skype_consultancy changed.
+
+[33mcommit 57db751ea5ba487974114c6d767872ab0f5421eb[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 14:52:01 2016 -0500
+
+    update wsgi for linode
+
+[33mcommit 72b609abe7563e6a64ce7a0e058a895b286d074f[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 10 14:47:18 2016 -0500
+
+    Changed to email for contact us
+
+[33mcommit d4c91247c0d996deab05d3094a1b6615953b1b90[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 9 18:14:31 2016 -0500
+
+    fixed author image
+
+[33mcommit e826cf9e9001edca47f624089bb4289e84d4bed5[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 9 18:06:04 2016 -0500
+
+    fixed model and settings issue
+
+[33mcommit e8fd47318c61b514baab43616dff633e918d5353[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 9 16:53:39 2016 -0500
+
+    moved models.py to common app
+
+[33mcommit df0aacbe829456110b57f70b872c9c9c4a285f22[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 9 14:49:07 2016 -0500
+
+    Deleted few unused files from unify_assets
+
+[33mcommit f65e7a207c69f9835492c984060ee7b4cf987680[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 8 22:58:11 2016 -0500
+
+    Database updated
+
+[33mcommit 1119a3079734d0b6186ce9e035400473398f54e5[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 8 16:35:16 2016 -0500
+
+    Fixed header issue. Fixed few formatting issues
+
+[33mcommit 99c9d2c40428c59e5dbb30cb7f634a2075595ff9[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 8 15:04:14 2016 -0500
+
+    Added top breadcrumb in home page. Shuffled advisors list for home page
+
+[33mcommit 613c6c70a99124a794dba461e4fc55f28595900d[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sat Aug 6 01:18:16 2016 -0500
+
+    Adding missing images
+
+[33mcommit f5a911a2b015fedfcdcbac008f677057f71d1304[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sat Aug 6 01:11:11 2016 -0500
+
+    Made several changes to make it production ready.
+
+[33mcommit 1a803239e85835c3c911d2c76b43b50348485b37[m
+Merge: 421f622 07048ae
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Aug 3 00:06:27 2016 -0500
+
+    Merge branch 'master' of https://github.com/tareqobaida/HSS_Obaida
+    fixing push issue. need to pull first
+
+[33mcommit 421f622ad6b25ec08b6b226d559865c0a032d9e7[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 2 23:56:09 2016 -0500
+
+    added few static files
+
+[33mcommit 07048ae561f2d553a34c38b91b1866303593dc1e[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Tue Aug 2 17:07:19 2016 -0500
+
+    Add files via upload
+
+[33mcommit 06a0e29eb5fb06e5aef2778fefbb9286b396a626[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Tue Aug 2 17:04:51 2016 -0500
+
+    Delete db.sqlite3
+
+[33mcommit 3f51edc0ed250bf6f8788cf27dc7a961a2f5c4df[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 2 16:50:12 2016 -0500
+
+    common folders added
+
+[33mcommit 661053a5de3d6f375377ee335318f2d7af4f8a25[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Aug 2 16:39:32 2016 -0500
+
+    It's the MVP. Version 1.0
+
+[33mcommit c46cb043b0fff6682e68b51b4dae629df96df4ce[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Aug 1 22:11:20 2016 -0500
+
+    Major changes. Fixed FAQ, Home and SOP pages
+
+[33mcommit 061fa467736e2f64cca6350a856b104faae316e6[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Jul 19 16:40:25 2016 -0500
+
+    Fixed footer
+
+[33mcommit 2d4555feb78e389f87b92c68fbed4e773c2a877d[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Jul 19 16:02:54 2016 -0500
+
+    Few formatting issues fixed
+
+[33mcommit 069837ba28d6d022136d81e366e99d603ba3ce1c[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Jul 19 15:26:40 2016 -0500
+
+    Advisors block getting data from models. Fixed owl corousal issue
+
+[33mcommit 48cec036cdd797948bf160ee41d13ac50180b8b1[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jul 18 23:55:25 2016 -0500
+
+    Changes in models. AuthorRole model added. social profile field added in author model
+
+[33mcommit 58e39e528168c116a5302c36ee74ebedb1174fdc[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jul 18 00:57:24 2016 -0500
+
+    File validation added for sop file
+
+[33mcommit fbd5d451807518679e31b2fd8727db02d703eeac[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jul 17 18:06:43 2016 -0500
+
+    capability of submitting sop via form is added and tested
+
+[33mcommit dfd23db9fc0e2851b1569248d53182a09c9a3e5f[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sat Jul 16 20:52:13 2016 -0500
+
+    capability of sending mail added for contact us form.
+
+[33mcommit 1287e7aca3efca9487f354a021e3a46f34195d56[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sat Jul 16 02:55:50 2016 -0500
+
+    capability to search by category and tag added
+
+[33mcommit f95b315aea038f7bb4a6ee0e96720f0a85ac5c12[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jul 10 03:08:04 2016 -0500
+
+    FAQ page modified, search capability added. search result page created
+
+[33mcommit cea35c05a8358be3a47fb065be4493d38011afa5[m
+Merge: 192e4c5 5f55c1e
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Fri Jul 8 23:09:41 2016 -0500
+
+    Merge branch 'master' of https://github.com/tareqobaida/HSS_Obaida
+
+[33mcommit 192e4c501bcafb219c26698fa604a36e8a8d0e0d[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Fri Jul 8 23:09:11 2016 -0500
+
+    Google analytics and site verification added
+
+[33mcommit 5f55c1edc6f25660cdb724f94d429faa61a3ef9e[m
+Merge: 3cdf436 0a6f567
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Fri Jul 8 23:07:39 2016 -0500
+
+    Merge pull request #4 from MasudulHasan/master
+    
+    changes suggested by Pavel vai is added
+
+[33mcommit 0a6f567445163107086e35b2670de45726de8da0[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Fri Jul 1 15:17:44 2016 +0600
+
+    navbar hover fixed
+
+[33mcommit 23d277bb157eaacfa36bb8dff639f4fefc6cd638[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Fri Jul 1 08:41:14 2016 +0600
+
+    changes suggested by Pavel vai is added
+
+[33mcommit 3cdf43600061a5aa18384a7cbb5a1a19ad0d4e85[m
+Merge: aaa268d 1ed57ef
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 29 15:33:26 2016 -0500
+
+    Merge branch 'master' of https://github.com/MasudulHasan/HSS_Obaida into hss_masud
+    merging changes from Masud. Need to resolve conflict
+
+[33mcommit 1ed57ef026498b5173633785fc5bfef1eb5a9499[m
+Merge: 6b49868 08467ef
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Thu Jun 30 02:32:12 2016 +0600
+
+    merged
+
+[33mcommit aaa268dc42c4f9423a7c97137a5b72ae587ea667[m
+Merge: c193281 08467ef
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 29 15:30:28 2016 -0500
+
+    Merge branch 'master' into hss_masud
+
+[33mcommit c1932817ce6e06fd84aa0c06c00cb113dd6eaa0e[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 29 15:30:15 2016 -0500
+
+    Pulling Masud's changes and merging
+
+[33mcommit 08467efb5e680e0713b180021b0eb247db3d5cd6[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 29 15:19:51 2016 -0500
+
+    wsgi.py file is commented for local use
+
+[33mcommit f2f1d74a73acb39bbac298b514973bf3e4d8b653[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 29 15:18:01 2016 -0500
+
+    Changed the project folder name to MSNB.  Modified models.py and added back end support for FAQ
+
+[33mcommit 6b49868aa389f7780f362c0ac512750df3100faa[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Thu Jun 30 02:04:41 2016 +0600
+
+    skype_consultancy page, contactus page, To-do page complted. change suggested by Tareq bhai updated
+
+[33mcommit 3b669c4ec6e7a9fadd4cee28ad046465e1162cf9[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Mon Jun 27 00:22:06 2016 +0600
+
+    merged
+
+[33mcommit 07d7ac2cc28c8c71a6fcb952ee2662c3dfa7a329[m
+Merge: 153f899 6f3b431
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Mon Jun 27 00:18:25 2016 +0600
+
+    merged
+
+[33mcommit 153f8990a71a4aaffc94d8909038a92e7483eaeb[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Mon Jun 27 00:08:32 2016 +0600
+
+    contact us page added
+
+[33mcommit 6f3b431b25d216f7eb23700f317854a86ae535e4[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 26 12:46:25 2016 -0500
+
+    Added missing app.js
+
+[33mcommit c409d4adebecc6d2e64dcf0188a666fff37320b4[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 26 12:33:19 2016 -0500
+
+    Merged Masud's changes to owl corousel work, but it did not
+
+[33mcommit a4777c80d402bfb3abbbf31fa31a61795bdfca6f[m
+Merge: 47c5b53 89ed8db
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 26 12:12:53 2016 -0500
+
+    Merge branch 'master' of https://github.com/MasudulHasan/HSS_Obaida into hss_masud
+    
+    # Conflicts:
+    #	develop_hss/__pycache__/__init__.cpython-35.pyc
+    #	develop_hss/__pycache__/settings.cpython-35.pyc
+    #	develop_hss/__pycache__/urls.cpython-35.pyc
+    #	templates/common/base.html
+
+[33mcommit 47c5b53f0ead86ed5a08c5b08b9a1babbc869cb7[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 26 11:54:17 2016 -0500
+
+    added posts model and changed admin
+
+[33mcommit 86c24f64dd7e2e7e10cf1181846fc949bacfae11[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 26 03:35:56 2016 -0500
+
+    Added models. Configured admin for models. Added google custom search.
+
+[33mcommit 89ed8db6d3e12c9cd8747db70ad55d25b77bf371[m
+Author: Masud <masudulhasanmasud690@gmail.com>
+Date:   Fri Jun 24 02:24:35 2016 +0600
+
+    FAQ AND SOP page completed
+
+[33mcommit ae227817c7a440bdd3e3faa19d562d6aff91d256[m
+Author: Masudulhasan <masudulhasanmasud690@gmail.com>
+Date:   Wed Jun 22 21:14:00 2016 +0600
+
+    faq page started
+
+[33mcommit cec194eab44b9e791b2f36c175d260d2e0a8ac22[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 22 08:46:10 2016 -0500
+
+    added wsgi file in git. model for author created. initialized admin panel.
+
+[33mcommit 1c1cc32e452008f40a1ce8a720a5478e9e91d00e[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Tue Jun 21 00:41:47 2016 -0500
+
+    Home page design incorporated from Masud's file
+
+[33mcommit 214098a9c6167f99abee00206e82d813d6e0812d[m
+Merge: 588689c fad577a
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 23:18:04 2016 -0500
+
+    merged
+
+[33mcommit 588689c4df080f9e0fbd2e2792f78fc1ed139a39[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 23:06:31 2016 -0500
+
+    gitignore changed
+
+[33mcommit c38f5e891871771a597b74f65c4eb170b7a118ad[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 23:01:52 2016 -0500
+
+    change in gitignore
+
+[33mcommit fad577ab03335d7fde9aa0dee7380b8578cf2e66[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 23:00:38 2016 -0500
+
+    Delete .gitignore
+
+[33mcommit 948b42ee7f7970ddf1241ea5aa26a40291984711[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 22:47:49 2016 -0500
+
+    added missing files
+
+[33mcommit a1b79e3224a2897a51c8cf13b687e46960802f0f[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Mon Jun 20 22:40:12 2016 -0500
+
+    trying to solve import problem
+
+[33mcommit 185635bc238d2cc36e9c10ea822f7aa0f56bfb6f[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Thu Jun 16 02:39:50 2016 -0500
+
+    Copied Masud's changes
+
+[33mcommit 9a4396f1ae012da823f9ff1e77e42d95a6546226[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Wed Jun 15 01:39:12 2016 -0500
+
+    Basic working django projects with unify assets added. base.html and nav.html are defined
+
+[33mcommit 1f5c7411c169060f05f411dbf1751a75762f2ae7[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Sun Jun 12 00:16:19 2016 -0500
+
+    added templates
+
+[33mcommit b0865735b667b76972ee79ef21e88d30b5b8c7e5[m
+Merge: 10ee24b 96b4bd7
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 12 00:10:36 2016 -0500
+
+    Merge branch 'master' of https://github.com/tareqobaida/HSS_Obaida
+    
+    adding remote from github
+
+[33mcommit 10ee24b69b90406eee380e839bf61ed60db0f0d5[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 12 00:08:17 2016 -0500
+
+    added files
+
+[33mcommit 085168382886d661ae7ed3bfe2d9d243bedd157f[m
+Author: tareqobaida <tareqbuet@gmail.com>
+Date:   Sun Jun 12 00:02:40 2016 -0500
+
+    first commit
+
+[33mcommit 96b4bd7c9f8807477592b8d1dc667af4b167c6ee[m
+Author: Abu Obaida <tareqbuet@gmail.com>
+Date:   Sat Jun 11 23:58:34 2016 -0500
+
+    Update .gitignore

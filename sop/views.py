@@ -1,12 +1,23 @@
 from random import shuffle
 
 from django.shortcuts import render
+from django.utils import timezone
 
-from common.models import Author
 from .forms import SOPSubmitForm
+from background_task_list.task import background_print
+from common.models import Author, Category
+from .tasks import add
 
 
 def sop(request):
+    print("\n\n In sop method")
+
+    # background_print(84)
+    # background_print.now(5)
+    # Category.objects.create(name="new tag from view mehtod")
+    
+    add.apply_async((4, 5), countdown=10)
+
     email_success = False
     if request.method == 'POST':
         form = SOPSubmitForm(request.POST, request.FILES)
