@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 
 from common import models
 from .forms import FaqSearchForm
+from .models import Question
 
 
 def faq(request):
     # News and Blog should not be added in FAQ page
     types = models.Type.objects.all().exclude(name='News')
-    recent_q = models.Question.objects.all().order_by('date')[:20]
-    popular_q = models.Question.objects.filter(category__name='Popular').order_by('date')[:20]
+    recent_q = Question.objects.all().order_by('date')[:20]
+    popular_q = Question.objects.filter(category__name='popular_faq').order_by('date')[:20]
     faq_search_form = FaqSearchForm()
     context = {'types': types,
                'recent_q': recent_q,
@@ -20,6 +21,7 @@ def faq(request):
 
 def search_result(request, cat_id=None, tag_id=None):
     # News and Blog should not be added in FAQ page
+    # used to populate categories and tags arranged by their type
     types = models.Type.objects.all().exclude(name='News')
     faq_search_form = FaqSearchForm()
     search_for = ''
@@ -33,10 +35,10 @@ def search_result(request, cat_id=None, tag_id=None):
                 redirect('faq')
 
     elif cat_id is not None:
-        search_result = models.Question.objects.filter(category__id=cat_id)
+        search_result = Question.objects.filter(category__id=cat_id)
         search_for = models.Category.objects.get(id=cat_id).name + ' Category'
     elif tag_id is not None:
-        search_result = models.Question.objects.filter(tag__id=tag_id)
+        search_result = Question.objects.filter(tag__id=tag_id)
         search_for = models.Tag.objects.get(id=tag_id).name + ' Tag'
     else:
         redirect('faq')

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class UserMeta(models.Model):
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User)
     url = models.URLField(blank=True, null=True)
     short_bio = models.TextField(max_length=200, blank=True, null=True)
     long_bio = models.TextField(max_length=5000, blank=True, null=True)
