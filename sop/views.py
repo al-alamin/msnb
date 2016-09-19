@@ -1,8 +1,8 @@
+from django.contrib.auth.models import User
 from random import shuffle
 
 from django.shortcuts import render
 
-from common.models import Author
 from .forms import SOPSubmitForm
 
 
@@ -15,7 +15,7 @@ def sop(request):
             email_success = form.email_SOP(file)
     else:
         form = SOPSubmitForm()
-    reviewers = Author.objects.filter(role__role='Reviewer').distinct()
+    reviewers = User.objects.filter(groups__name='Reviewer').distinct()
     # show reviewers in random
     reviewers = list(reviewers)  # for shuffling purpose
     shuffle(reviewers)

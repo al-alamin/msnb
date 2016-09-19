@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from common.models import Author, Tag, Category, Question, Answer, Post, Type, AuthorRole
+from common.models import Tag, Category, Post, Type, UserMeta
 
-admin.site.register([Tag, Category, Answer, Post, AuthorRole])
+admin.site.register([Tag, Category, Post, UserMeta])
 
 
 class TagInline(admin.TabularInline):
@@ -17,23 +17,5 @@ class TypeAdmin(admin.ModelAdmin):
     inlines = [TagInline, CategoryInline]
 
 
-class QuestionInLine(admin.TabularInline):
-    model = Question
-
-
-class AuthorAdmin(admin.ModelAdmin):
-    inlines = [QuestionInLine]
-
-
-class AnswerInLine(admin.TabularInline):
-    model = Answer
-
-
-class QuestionAdmin(admin.ModelAdmin):
-    inlines = [AnswerInLine]
-
-
-admin.site.register(Author, AuthorAdmin)
-admin.site.register(Question, QuestionAdmin)
 admin.site.register(Type, TypeAdmin)
 

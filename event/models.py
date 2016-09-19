@@ -1,14 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.timezone import now
-from common.models import Category, Author
+from common.models import Category
 
 
 # Create your models here.
 
 class Event(models.Model):
     title = models.CharField(max_length=500)
-    presenter = models.ForeignKey(Author)
+    presenter = models.ForeignKey(User)
     category = models.ManyToManyField(Category)
     location = models.CharField(max_length=500, null=True, blank=True)
     description = models.CharField(max_length=5000, null=True, blank=True)
