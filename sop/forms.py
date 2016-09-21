@@ -16,11 +16,14 @@ class SOPSubmitForm(forms.Form):
     file_attrs = {'required': 'required',
                   'onchange': "this.parentNode.nextSibling.value = this.value",
                   }
-    file = forms.FileField(widget=forms.FileInput(attrs=file_attrs))
+    # file = forms.FileField(widget=forms.FileInput(attrs=file_attrs))
+    file = forms.FileField()
 
     def clean(self):
         super(SOPSubmitForm, self).clean()
+
         sop_file = self.cleaned_data['file']
+        print (type(sop_file))
         if sop_file.size > 5 * 1024 * 1024:
             raise forms.ValidationError("File size exceeded 5MB limit")
         if sop_file.content_type not in SUPPORTED_SOP_FILE_TYPES:
@@ -35,3 +38,9 @@ class SOPSubmitForm(forms.Form):
         email_success = send_mail(
             subject, msg, from_email=from_email, attachmets=file)
         return email_success
+
+
+
+class MyForm(forms.Form):
+    file = forms.FileField()
+    # file = forms.CharField()

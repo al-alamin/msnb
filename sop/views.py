@@ -23,7 +23,8 @@ def sop(request):
         form = SOPSubmitForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
-            email_success = form.email_SOP(file)
+            print (type(file))
+            # email_success = form.email_SOP(file)
     else:
         form = SOPSubmitForm()
     reviewers = Author.objects.filter(role__role='Reviewer').distinct()
