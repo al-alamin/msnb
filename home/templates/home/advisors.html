@@ -14,14 +14,14 @@
             <div class="owl-slider">
                 {% for advisor in advisors %}
                     <div class="item">
-                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ advisor.thumbnail }}" alt="">
+                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ advisor.usermeta.thumbnail }}" alt="">
                         <span>{{ advisor.first_name }} {{ advisor.last_name }}</span>
-                        <small>- {{ advisor.role.last }} -</small>
-                        <p>{{ advisor.short_bio|safe }}</p>
+                        <small>- {{ advisor.groups.first }} -</small>
+                        <p>{{ advisor.usermeta.short_bio|safe }}</p>
                         <ul class="list-inline team-social-v4">
-                            <li><a href="{{ advisor.facebook_link }}" target="_blank"><i class="rounded-x fa fa-facebook"></i></a></li>
-                            <li><a href="{{ advisor.twitter_link }}" target="_blank"><i class="rounded-x fa fa-twitter"></i></a></li>
-                            <li><a href="{{ advisor.linkedin_link }}" target="_blank"><i class="rounded-x fa fa-linkedin"></i></a></li>
+                            <li><a href="{{ advisor.usermeta.facebook_link }}" target="_blank"><i class="rounded-x fa fa-facebook"></i></a></li>
+                            <li><a href="{{ advisor.usermeta.twitter_link }}" target="_blank"><i class="rounded-x fa fa-twitter"></i></a></li>
+                            <li><a href="{{ advisor.usermeta.linkedin_link }}" target="_blank"><i class="rounded-x fa fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 {% endfor %}

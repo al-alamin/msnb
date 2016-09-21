@@ -24,22 +24,36 @@
                 <div class="container">
                     <ul class="nav navbar-nav">
                         <li class="{% if request.resolver_match.url_name == "home" %}active{% endif %}">
-                            <a href="/">Home </a></li>
+                            <a href="/">Home </a>
+                        </li>
 
-                        <li class=" {% if request.resolver_match.url_name == "faq" %}active{% endif %}"><a
-                                href="/faq/">FAQ</a></li>
+                        <li class=" {% if request.resolver_match.url_name == "faq" %}active{% endif %}">
+                            <a href="/faq">FAQ</a>
+                        </li>
 
                         <li class=" {% if request.resolver_match.url_name == "sop_review" %}active{% endif %}">
-                            <a href="/sop/">SOP REVIEW</a></li>
+                            <a href="/sop">SOP REVIEW</a>
+                        </li>
 
-                        {#                <li class="page-scroll {% if request.resolver_match.url_name == "to_do" %}active{% endif %}"><a href="/to_do/">To-Do</a></li>#}
-
-                        <li class="{% if request.resolver_match.url_name == "skype" %}active{% endif %}"><a
-                                href="/skype/">Skype Session</a></li>
-
-                        <li class="{% if request.resolver_match.url_name == "contactus" %}active{% endif %}">
-                            <a href="/contactus/">Contact Us</a></li>
-                        <!-- Home -->
+                        <li class="{% if request.resolver_match.url_name == "skype" %}active{% endif %}">
+                            <a href="/skype/">Skype Session</a>
+                        </li>
+                        <!-- About Us -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="{% if request.resolver_match.url_name == "about_us" %}active{% endif %}">
+                                    <a href="/about_us">About Us</a>
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == "contactus" %}active{% endif %}">
+                                    <a href="/contactus/">Contact Us</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- End About Us -->
+                        {# login menu #}
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 {% if user and not user.is_anonymous %}
@@ -48,18 +62,30 @@
                                     Login
                                 {% endif %}
                             </a>
+
                             <ul class="dropdown-menu">
                                 {% if user and user.is_anonymous %}
-                                    <li><a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><i
-                                            class="fa fa-google fa-lg color-red"></i>Login with Google</a></li>
-                                    <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><i
-                                            class="fa fa-facebook-official fa-lg color-dark-blue"></i>Login with
-                                        Facebook</a></li>
+                                    <li>
+                                        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
+                                            <i class="fa fa-google fa-lg color-red"></i>
+                                            Login with Google
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                                            <i class="fa fa-facebook-official fa-lg color-dark-blue"></i>
+                                            Login with Facebook
+                                        </a>
+                                    </li>
                                 {% else %}
-                                    <li><a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+                                    <li>
+                                        <a href="{% url 'auth:logout' %}?next={{ request.path }}">
+                                            Logout</a>
                                     </li>
                                 {% endif %}
                             </ul>
+                            {# end login menu #}
                         </li>
 
                         <!-- Search Block -->
@@ -73,10 +99,11 @@
                             </div>
                         </li>
                         <!-- End Search Block -->
-
                     </ul>
-                </div><!--/end container-->
-            </div><!--/navbar-collapse-->
+                </div>
+                <!--/end container-->
+            </div>
+            <!--/navbar-collapse-->
         </div>
     </div>
     <!-- End Navbar -->

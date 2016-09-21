@@ -1,11 +1,12 @@
+from django.contrib.auth.models import User
 from random import shuffle
 
 from django.shortcuts import render
 from django.utils import timezone
 
 from .forms import SOPSubmitForm
-from background_task_list.task import background_print
-from common.models import Author, Category
+# from background_task_list.task import background_print
+# from common.models import Author, Category
 from .tasks import add
 
 
@@ -27,7 +28,7 @@ def sop(request):
             # email_success = form.email_SOP(file)
     else:
         form = SOPSubmitForm()
-    reviewers = Author.objects.filter(role__role='Reviewer').distinct()
+    reviewers = User.objects.filter(groups__name='Reviewer').distinct()
     # show reviewers in random
     reviewers = list(reviewers)  # for shuffling purpose
     shuffle(reviewers)

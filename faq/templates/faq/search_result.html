@@ -36,7 +36,7 @@
                 {% for question in search_result %}
                 <!-- Begin Inner Results -->
                 <div class="inner-results">
-                    <h3>{{ question.text }}</h3>
+                    <h3>{{ question.text | safe }}</h3>
                     <ul class="list-inline up-ul">
                         {% for cat in question.category.all %}
                         <li><a href="{% url 'faq_search_cat' cat.id %}">{{ cat.name }}</a></li>
@@ -45,7 +45,7 @@
                         <li><a href="{% url 'faq_search_tag' tag.id %}">{{ tag.name }}</a></li>
                             {% endfor %}
                     </ul>
-                    <p>{{ question.answer.text }}</p>
+                    <p>{{ question.ans | safe }}</p>
                 </div>
                 <!-- end Inner Results -->
 

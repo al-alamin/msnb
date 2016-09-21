@@ -1,15 +1,17 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.timezone import now
-from common.models import Category, Author
 
-
-# Create your models here.
 
 class Event(models.Model):
+    event_type_choices = (
+        ('skype_session', 'skype_session'),
+        ('others', 'others')
+    )
     title = models.CharField(max_length=500)
-    presenter = models.ForeignKey(Author)
-    category = models.ManyToManyField(Category)
+    presenter = models.ForeignKey(User, help_text= "Presenter should have 'usermeta' data.")
+    event_type = models.CharField(choices=event_type_choices, max_length=30,
+                                  help_text='For skype session select "skype_session".')
     location = models.CharField(max_length=500, null=True, blank=True)
     description = models.CharField(max_length=5000, null=True, blank=True)
     start_time = models.DateTimeField()
@@ -32,7 +34,7 @@ class Event(models.Model):
     @property
     def duration(self):
         time_diff = self.end_time - self.start_time
-        return time_diff.total_seconds()/3600  # difference in hour
+        return time_diff.total_seconds() / 3600  # difference in hour
 
     class Meta:
         ordering = ('start_time',)
@@ -42,7 +44,7 @@ class Event(models.Model):
 class Registration(models.Model):
     event = models.ForeignKey(Event)
     attendee = models.ForeignKey(User)
-    skype_id = models.CharField(max_length=255)
+    skype_id = models.CharField(max_length=255, help_text="required for 'skype session'.")
     created = models.DateTimeField(auto_now_add=True, editable=False, null=True, blank=True)
     paid = models.BooleanField(default=False)
 

@@ -17,13 +17,13 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a href="#collapse-{{ forloop.counter }}" data-parent="#accordion-v1" data-toggle="collapse" data-toggle="tooltip" data-placement="top" title="click to see the answer" class="accordion-toggle">
-                                            {{ question.text }}
+                                            {{ question.text | safe }}
                                         </a>
                                     </h4>
                                 </div>
                                 <div class="panel-collapse collapse {% if forloop.first %}in{% endif %}" id="collapse-{{ forloop.counter }}">
                                     <div class="panel-body">
-                                        {{ question.answer.text }}
+                                        {{ question.ans | safe }}
                                     </div>
                                 </div>
                             </div>
@@ -39,13 +39,13 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a href="#collapse-{{ forloop.counter }}" data-parent="#accordion-v1" data-toggle="collapse" data-toggle="tooltip" data-placement="top" title="click to see the answer" class="accordion-toggle">
-                                            {{ question.text }}
+                                            {{ question.text | safe}}
                                         </a>
                                     </h4>
                                 </div>
                                 <div class="panel-collapse collapse {% if forloop.first %}in{% endif %}" id="collapse-{{ forloop.counter }}">
                                     <div class="panel-body">
-                                        {{ question.answer.text }}
+                                        {{ question.ans | safe }}
                                     </div>
                                 </div>
                             </div>

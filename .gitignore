@@ -10,3 +10,6 @@ coverage_html/
 run_test.sh
 runserver.sh
 media
+media/
+static/common/google_analytics.js
+
