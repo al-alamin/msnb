@@ -1,12 +1,12 @@
 from datetime import timedelta
 
 from django.contrib import admin
-from event.models import Event, Registration
+from event.models import Event, Registration, SkypeEmail
 from kombu.transport.django import models as kombu_models
 from django.utils import timezone
 
 from common.tasks import send_skype_email_after_mintue, send_skype_email_before_hour, send_skype_email_before_mintue
-from common.tasks import add
+from common.tasks import add, skype_event_group_email
 
 # send_skype_email_before_hour
 #     send_skype_email_before_mintue
@@ -19,7 +19,7 @@ class RegistrationInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
     inlines = [RegistrationInline]
-    raw_id_fields = ('presenter', )
+    raw_id_fields = ('presenter',)
 
     def save_model(self, request, obj, form, change):
         print("\n\n In Event Save Method ")
@@ -40,10 +40,27 @@ class EventAdmin(admin.ModelAdmin):
             (obj.id,), eta=time_minute_after)
 
         # send_skype_email_before_mintue.apply_async(
-        #     (obj.id,), eta=timezone.now() + timedelta(minutes=2)) 
-        
+        #     (obj.id,), eta=timezone.now() + timedelta(minutes=2))
+
         add.apply_async((15, 5), countdown=5)
+
+
+class SkypeEmailAdmin(admin.ModelAdmin):
+    raw_id_fields = ('event',)
+
+    def save_model(self, request, obj, form, change):
+        # Create and save but Dont Edit and save again
+        # If you need to edit then delete the email and create another one
+        # In future will add the editing feature
+        #
+        print("\n\n In Skype Email Event Save Method ")
+        obj.save()
+
+        skype_event_group_email.apply_async(
+            (obj.id,), countdown=5)
+
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Registration)
 admin.site.register(kombu_models.Message)
+admin.site.register(SkypeEmail, SkypeEmailAdmin)

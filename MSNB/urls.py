@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^contactus/', include('contact_us.urls')),
     url(r'^about_us/', include('about_us.urls')),
     url(r'^google_search/$', google_custom_search, name='google_search'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 if settings.DEBUG is True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

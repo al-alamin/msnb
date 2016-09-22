@@ -13,3 +13,4 @@ media
 media/
 static/common/google_analytics.js
 
+event/migrations/
