@@ -41,6 +41,11 @@ class Event(models.Model):
         get_latest_by = 'start_time'
 
 
+
+
+
+
+
 class Registration(models.Model):
     event = models.ForeignKey(Event)
     attendee = models.ForeignKey(User)

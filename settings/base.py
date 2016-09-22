@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,8 +26,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
-ADMIN_EMAILS = ['support@mystudynotebook.com', 'tareqbuet@gmail.com', ]
-PRIMARY_ADMIN_EMAIL = 'support@mystudynotebook.com'
+# ADMIN_EMAILS = ['support@mystudynotebook.com', 'tareqbuet@gmail.com', ]
+# PRIMARY_ADMIN_EMAIL = 'support@mystudynotebook.com'
 
 # Application definition
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.django_app.default',  # For python social auth
+    'django.contrib.humanize',
     'faq',
     'home',
     'sop',
@@ -49,6 +51,7 @@ INSTALLED_APPS = (
     'settings',
     'background_task',
     'djcelery',
+    'kombu.transport.django',
     'django_crontab',
     "post_office",
     'about_us',
@@ -114,7 +117,7 @@ USE_L10N = True
 USE_TZ = True
 
 # A list of all the people who get code error notifications.
-ADMINS = [('Abu Obaida', 'tareqbuet@gmail.com')]
+# ADMINS = [('Abu Obaida', 'tareqbuet@gmail.com')]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -153,26 +156,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-# import djcelery
-# djcelery.setup_loader()
-# CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
-# CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+import djcelery
+djcelery.setup_loader()
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+BROKER_URL = 'django://'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
-# from settings import local
-# import settings
-# CRONTAB_DJANGO_SETTINGS_MODULE = settings.local
-# CRONTAB_COMMAND_SUFFIX = '2>&1'
-
-
-CRONJOBS = [
-    # ('*/1 * * * *', 
-    # 'source ~/.virtualenvs/msnb2/bin/python && sop.cron.my_scheduled_job', 
-    #  '>> /tmp/scheduled_job.log')
-
-    ('*/1 * * * *', 
-    'sop.cron.my_scheduled_job', 
-     '>> /tmp/scheduled_job.log')
-]
 
 
 

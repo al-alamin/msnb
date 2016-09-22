@@ -10,9 +10,10 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.local')
 from django.conf import settings  # noqa
 
 app = Celery('MSNB',
-             broker='amqp://',
+             # broker='amqp://',
+             BROKER_URL = 'django://',
              backend='amqp://',
-             include=['sop.tasks'])
+             include=['common.tasks'])
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.

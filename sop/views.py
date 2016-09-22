@@ -7,7 +7,7 @@ from django.utils import timezone
 from .forms import SOPSubmitForm
 # from background_task_list.task import background_print
 # from common.models import Author, Category
-from .tasks import add
+from common.tasks import add
 
 
 def sop(request):
@@ -17,7 +17,7 @@ def sop(request):
     # background_print.now(5)
     # Category.objects.create(name="new tag from view mehtod")
     
-    # add.apply_async((4, 5), countdown=10)
+    add.apply_async((4, 5), countdown=5)
 
     email_success = False
     if request.method == 'POST':

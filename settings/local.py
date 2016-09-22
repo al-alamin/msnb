@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = True
-DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG_PROPAGATE_EXCEPTIONS = True
 INSTALLED_APPS += ('debug_toolbar',)
 MIDDLEWARE_CLASSES += ("debug_toolbar.middleware.DebugToolbarMiddleware",)
 
@@ -31,3 +31,7 @@ LOGGING = {
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ENV_PATH, '../media/')
 MEDIA_URL = 'media/'
+
+ADMIN_EMAILS = [ 'mdabdullahalalaminp@gmail.com', ]
+PRIMARY_ADMIN_EMAIL = 'mdabdullahalalaminp@gmail.com'
+ADMINS = [('Alamin', 'mdabdullahalalaminp@gmail.com')]
