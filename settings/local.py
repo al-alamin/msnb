@@ -33,5 +33,5 @@ MEDIA_ROOT = os.path.join(ENV_PATH, '../media/')
 MEDIA_URL = 'media/'
 
 ADMIN_EMAILS = [ 'mdabdullahalalaminp@gmail.com', ]
-PRIMARY_ADMIN_EMAIL = 'mdabdullahalalaminp@gmail.com'
+PRIMARY_ADMIN_EMAIL = 'support@mystudynotebook.com'
 ADMINS = [('Alamin', 'mdabdullahalalaminp@gmail.com')]

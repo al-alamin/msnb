@@ -11,7 +11,7 @@ def send_mail_async(subject, body_email, to_email):
     # This is just a helper function to send email async.
     # See the output in the worker process console
     print("\n\n Goint to send email asynconously\n\n")
-    send_mail(subject, body_email, to_email)
+    return send_mail(subject, body_email, to_email)
 
 
 @shared_task

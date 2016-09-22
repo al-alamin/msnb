@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from common.utils import send_mail
 from event.models import Registration
+from common.tasks import send_mail_async
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +46,9 @@ class EventRegistrationForm(forms.ModelForm):
                          Support Team
                          My Study Notebook
                          """.format(user.first_name, event.title, event.start_time, event.duration)
-            email_success = send_mail(subject, body_email, to_email)
+            # email_success = send_mail(subject, body_email, to_email)
+            email_success = send_mail_async.delay(subject, body_email, to_email)
+
 
         return reg_success, email_success
 
