@@ -48,15 +48,13 @@ INSTALLED_APPS = (
     'skype_consultancy',
     'common',
     'event',
-    'settings',
-    'background_task',
-    'djcelery',
-    'kombu.transport.django',
-    'django_crontab',
-    "post_office",
+    'settings',  
     'about_us',
     'blog',
-)
+    'djcelery',
+    'kombu.transport.django',  
+    
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
