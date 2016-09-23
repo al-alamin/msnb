@@ -23,21 +23,27 @@ class EventAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         print("\n\n In Event Save Method ")
+        obj.creation_time = timezone.now()
         obj.save()
 
-        # 12 Hours before the event
+        # Try to send email before 12 hours but for some reasons if it fails then
+        # After 3 hours trying ie 9 hours before the event it will not try to send
+        # any more
         time_hour = obj.start_time - timedelta(hours=12)
+        time_hour_expire = time_hour + timedelta(hours=3)
         # 30 minutes before the event
         time_minute_before = obj.start_time - timedelta(minutes=30)
+        time_minute_before_expire = time_minute_before + timedelta(minutes=30)
         # 30 minutes after the event
-        time_minute_after = obj.end_time - timedelta(minutes=30)
+        time_minute_after = obj.end_time + timedelta(minutes=30)
+        time_minute_after_expire = time_minute_after + timedelta(hours=3)
 
         send_skype_email_before_hour.apply_async(
-            (obj.id,), eta=time_hour)  # event_id
+            (obj.id, obj.creation_time), eta=time_hour, expires=time_hour_expire)  # event_id
         send_skype_email_before_mintue.apply_async(
-            (obj.id,), eta=time_minute_before)  # event_id, minute
+            (obj.id, obj.creation_time), eta=time_minute_before, expires=time_minute_before_expire)  # event_id, minute
         send_skype_email_after_mintue.apply_async(
-            (obj.id,), eta=time_minute_after)
+            (obj.id, obj.creation_time), eta=time_minute_after, expires=time_minute_after_expire)
 
         # send_skype_email_before_mintue.apply_async(
         #     (obj.id,), eta=timezone.now() + timedelta(minutes=2))
@@ -49,15 +55,12 @@ class SkypeEmailAdmin(admin.ModelAdmin):
     raw_id_fields = ('event',)
 
     def save_model(self, request, obj, form, change):
-        # Create and save but Dont Edit and save again
-        # If you need to edit then delete the email and create another one
-        # In future will add the editing feature
-        #
+        obj.creation_time = timezone.now()
         print("\n\n In Skype Email Event Save Method ")
         obj.save()
 
         skype_event_group_email.apply_async(
-            (obj.id,), countdown=5)
+            (obj.id, obj.creation_time), eta=obj.send_time)
 
 
 admin.site.register(Event, EventAdmin)

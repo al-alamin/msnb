@@ -4,13 +4,15 @@ from django.utils.timezone import now
 
 from ckeditor.fields import RichTextField
 
+
 class Event(models.Model):
     event_type_choices = (
         ('skype_session', 'skype_session'),
         ('others', 'others')
     )
     title = models.CharField(max_length=500)
-    presenter = models.ForeignKey(User, help_text= "Presenter should have 'usermeta' data.")
+    presenter = models.ForeignKey(
+        User, help_text="Presenter should have 'usermeta' data.")
     event_type = models.CharField(choices=event_type_choices, max_length=30,
                                   help_text='For skype session select "skype_session".')
     location = models.CharField(max_length=500, null=True, blank=True)
@@ -19,7 +21,10 @@ class Event(models.Model):
     end_time = models.DateTimeField()
     registration_limit = models.PositiveSmallIntegerField(null=True,
                                                           blank=True, default=10)
-    fee = models.DecimalField(max_digits=255, decimal_places=2, default=0, null=True, blank=True)
+    fee = models.DecimalField(
+        max_digits=255, decimal_places=2, default=0, null=True, blank=True)
+    creation_time = models.DateTimeField(editable=False)
+    # This need for the background task
 
     def __str__(self):
         return self.title
@@ -42,16 +47,13 @@ class Event(models.Model):
         get_latest_by = 'start_time'
 
 
-
-
-
-
-
 class Registration(models.Model):
     event = models.ForeignKey(Event)
     attendee = models.ForeignKey(User)
-    skype_id = models.CharField(max_length=255, help_text="required for 'skype session'.")
-    created = models.DateTimeField(auto_now_add=True, editable=False, null=True, blank=True)
+    skype_id = models.CharField(
+        max_length=255, help_text="required for 'skype session'.")
+    created = models.DateTimeField(
+        auto_now_add=True, editable=False, null=True, blank=True)
     paid = models.BooleanField(default=False)
 
     def __str__(self):
@@ -67,9 +69,7 @@ class SkypeEmail(models.Model):
     email_subject = models.CharField(max_length=100)
     email_body = RichTextField(max_length=500)
     send_time = models.DateTimeField()
+    creation_time = models.DateTimeField(editable=False)
 
     def __str__(self):
         return self.event.title
-
-
-
