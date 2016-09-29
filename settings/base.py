@@ -26,9 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
-# ADMIN_EMAILS = ['support@mystudynotebook.com', 'tareqbuet@gmail.com', ]
-# PRIMARY_ADMIN_EMAIL = 'support@mystudynotebook.com'
-
+# 
 # Application definition
 
 INSTALLED_APPS = (
@@ -156,11 +154,11 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-import djcelery
-djcelery.setup_loader()
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
-BROKER_URL = 'django://'
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+# import djcelery
+# djcelery.setup_loader()
+# CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+# BROKER_URL = 'django://'
+# CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 
 

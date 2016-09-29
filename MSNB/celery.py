@@ -10,8 +10,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.local')
 from django.conf import settings  # noqa
 
 app = Celery('MSNB',
-             # broker='amqp://',
-             BROKER_URL = 'django://',
+             BROKER_URL = 'amqp://guest:guest@localhost:5672//',
+             # BROKER_URL = 'django://',
              backend='amqp://',
              include=['common.tasks'])
 
@@ -24,6 +24,14 @@ app.conf.update(
 )
 app.conf.update(
     CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend',
+)
+
+app.conf.update(
+    CELERY_TASK_SERIALIZER='json',
+    CELERY_ACCEPT_CONTENT=['json'],  # Ignore other content
+    CELERY_RESULT_SERIALIZER='json',
+    CELERY_TIMEZONE='Europe/Oslo',
+    CELERY_ENABLE_UTC=True,
 )
 
 

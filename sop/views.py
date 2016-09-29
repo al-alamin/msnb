@@ -19,13 +19,13 @@ def sop(request):
     # Category.objects.create(name="new tag from view mehtod")
     
     task = add.apply_async((4, 5), countdown=10,task_id="a25")
-    task.revoke()
-    revoke("a25", terminate=True)
+    # task.revoke()
+
     print(task)
     print(task.task_id)
     print(type(task))
     # AsyncResult(task_id.task_id).revoke()
-    task.revoke()
+
     app.control.revoke("a25", terminate=True, signal='SIGKILL')
 
     email_success = False
