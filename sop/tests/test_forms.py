@@ -34,7 +34,12 @@ class MyFormTest(TestCase):
 
     def test_mock(self):
         file = MagicMock(spec=File, name='file')
-        form = MyForm({'file': file})
+        file.name = "abc.txt"
+        # file.read.return_value = b"alamin"
+        # file.length = 50
+        form = MyForm(files={'file': file})
+        print (form)
+        print (form.errors)
         self.assertTrue(form.is_valid())
 
     def test_my_form4(self):
@@ -46,7 +51,7 @@ class MyFormTest(TestCase):
         # print (type(upload_file))
         # print (upload_file.read())
         # print (file.size)
-        form = MyForm({'file': f2})
+        form = MyForm(files={'file': f2})
     
 
 
@@ -73,3 +78,21 @@ class MyFormTest(TestCase):
     #     print (form.errors)
     #     print(form.is_valid())
     #     self.assertTrue(form.is_valid())
+    #     
+
+
+
+
+    def test_my_form(self):
+        # best way to test this kind of form to create a client and post data using the client.
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(current_dir, 'sop.txt')
+        upload_file = open(file_path,'rb')
+        inmemoryfile = SimpleUploadedFile(upload_file.name, upload_file.read())
+        # or you can simply create in memory file like this
+        # inmemoryfile = SimpleUploadedFile('testfile.docx', b'this is test file')
+        file_dict = {'file': inmemoryfile}
+        form = MyForm(files=file_dict)
+        print('errors',form.errors)
+        self.assertTrue(form.is_valid())
+        upload_file.close()

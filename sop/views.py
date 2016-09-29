@@ -4,9 +4,10 @@ from random import shuffle
 from django.shortcuts import render
 from django.utils import timezone
 
+from celery.result import AsyncResult
+from MSNB.celery import app
+from celery.task.control import revoke
 from .forms import SOPSubmitForm
-# from background_task_list.task import background_print
-# from common.models import Author, Category
 from common.tasks import add
 
 
@@ -17,7 +18,15 @@ def sop(request):
     # background_print.now(5)
     # Category.objects.create(name="new tag from view mehtod")
     
-    add.apply_async((4, 5), countdown=5)
+    task = add.apply_async((4, 5), countdown=10,task_id="a25")
+    task.revoke()
+    revoke("a25", terminate=True)
+    print(task)
+    print(task.task_id)
+    print(type(task))
+    # AsyncResult(task_id.task_id).revoke()
+    task.revoke()
+    app.control.revoke("a25", terminate=True, signal='SIGKILL')
 
     email_success = False
     if request.method == 'POST':

@@ -147,7 +147,7 @@ def skype_event_group_email(skype_email_id, time):
 
 @shared_task
 def add(x=4, y=5):
-    print("\n\n****** task add")
+    print("\n\n****** task add method")
     return x + y
 
 
